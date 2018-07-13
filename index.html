@@ -481,7 +481,7 @@
 <p>​                    </p>
 </li>
 <li><p>那对于每次梯度下降，我们先需要求得该点的梯度，若对梯度概念不太清楚，请看<a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">梯度</a>。对损失函数的每个$θ_j$进行求偏导, 其实就是损失函数降次，消去1/2，并提出对应的$x_j$系数：</p>
-<p>​                 $\frac{\partial J}{\partial θ<em>j} = \frac{1}{m}\sum</em>{i=1}^m(h_θ(x^{(i)})-y^{(i)})x_j^{(i)}$</p>
+<p>$\frac{\partial J}{\partial θ<em>j} = \frac{1}{m}\sum</em>{i=1}^m(h_θ(x^{(i)})-y^{(i)})x_j^{(i)}$</p>
 </li>
 </ul>
 <ul>
@@ -490,7 +490,7 @@
 <p><img src="https://i.imgur.com/cW8PDPu.png" alt=""> </p>
 <ul>
 <li><p>梯度下降就是我们逆着这个梯度，就是沿梯度的反方向走，所以我们要对整组回归系数进行更新，就是要用对应的上一个回归系数减去对应梯度的量，其实就是减它的偏导，更新公式如下。</p>
-<p>​                            $θ<em>{j(new)} = θ</em>{j(old)} - α · \frac{\partial J}{\partial θ_j}$</p>
+<p>$θ<em>{j(new)} = θ</em>{j(old)} - α · \frac{\partial J}{\partial θ_j}$</p>
 <p>式子中的 $α$ 是指“学习率”，大致的意思是限制一下你往梯度反方向走的步距。我们都知道用求偏导求出来的梯度是个长短不一的向量，其实我们只需要它的方向，它的长度是不定的。所以我们给这个方向梯度向量乘上一个$α$，其实就相当于改变这个向量的长度，而方向是不变的。</p>
 <p>从图中可看出，如果这个梯度过大，很可能会直接越过那个“凹槽”，跳到对岸，然后下一步又是这样，就会在那里跳来跳去，半天都不下降一点。</p>
 <p>所以一般学习率 $α$ 会很低从而让它慢慢慢慢往下走，但如果太低的话，计算量又会非常大，因为迭代很久都没有下降一点</p>
@@ -499,8 +499,8 @@
 </ul>
 <ul>
 <li><p>对于例子中的回归系数，更新如下</p>
-<p>​             $θ<em>0$方向:  $θ</em>{0(new)} = θ_{0(old)} - α · \frac{\partial J}{\partial θ_0}$</p>
-<p>​             $θ<em>1$方向:  $θ</em>{1(new)} = θ_{1(old)} - α · \frac{\partial J}{\partial θ_1}$</p>
+<p>$θ<em>0$方向:  $θ</em>{0(new)} = θ_{0(old)} - α · \frac{\partial J}{\partial θ_0}$</p>
+<p>$θ<em>1$方向:  $θ</em>{1(new)} = θ_{1(old)} - α · \frac{\partial J}{\partial θ_1}$</p>
 <p>假如更新了一次后，我们新的点($θ<em>{0}$, $θ</em>{1}$)从黑色点走到了粉色的点，再更新一次，从粉色的点走到了黄色，然后一直这样迭代下去，最终会里凹槽的最低点越来越近，也就是我们想要的损失函数最优解（局部最优或全局最优）的回归系数($θ<em>{0}$, $θ</em>{1}$)</p>
 <p>​             <img src="https://i.imgur.com/X3XeqEZ.png" alt=""> </p>
 </li>
@@ -529,7 +529,8 @@
 <li>2</li>
 <li>。。。。。</li>
 </ul>
-<h3 id="局部加权线性回归（Locallly-Weights-Linear-Regression-LWLR）"><a href="#局部加权线性回归（Locallly-Weights-Linear-Regression-LWLR）" class="headerlink" title="局部加权线性回归（Locallly Weights Linear Regression, LWLR）"></a>局部加权线性回归（Locallly Weights Linear Regression, LWLR）</h3><blockquote>
+<h3 id="局部加权线性回归（Locallly-Weights-Linear-Regression-LWLR）"><a href="#局部加权线性回归（Locallly-Weights-Linear-Regression-LWLR）" class="headerlink" title="局部加权线性回归（Locallly Weights Linear Regression, LWLR）"></a>局部加权线性回归（Locallly Weights Linear Regression, LWLR）</h3><p><img src="https://i.imgur.com/8aP3FWV.png" alt=""> </p>
+<blockquote>
 <p>普通线性回归较为简单，就是用一个线性函数来拟合数据分布，比如对于一个一维的样本，即用 $y = θ_0+θ_1x$ （直线）来拟合数据点分布，对于一个二维样本，即用$z = θ_0+θ_1x + θ_2y$ （平面）来拟合数据点分布，高维的样本 $y = θ_0+θ_1x_1 + θ_2x_2 + …. + θ_nx_n$ 以此类推，但高维的样本无法完全可视化数据点的分布情况，所以较难直观理解。</p>
 <p>方法：</p>
 <ol>
