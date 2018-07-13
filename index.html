@@ -146,6 +146,135 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Regression Analysis Model（Regression Analysis）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h1 id="Regression-Analysis-Model（Regression-Analysis）"><a href="#Regression-Analysis-Model（Regression-Analysis）" class="headerlink" title="Regression Analysis Model（Regression Analysis）"></a>Regression Analysis Model（Regression Analysis）</h1><blockquote>
+<h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><strong>回归分析（Regression Analysis）</strong>：一种统计学上分析数据的方法，目的在于了解两个或多个变数间是否相关、相关方向与强度，并建立数学模型以便观察特定变数来预测研究者感兴趣的变数。</p>
+<p><strong>难度评估</strong>：:star::star:</p>
+<p><strong>回归分析主要算法</strong>：</p>
+<ol>
+<li>线性回归(Linear Regression)</li>
+<li>局部加权线性回归(Locally weighted linear regression)</li>
+<li>多项式回归(Polynomial Regression)</li>
+<li>逐步回归(Step Regression)</li>
+<li>岭回归(Ridge Regression)</li>
+<li>套索回归(Lasso Regression)</li>
+<li>弹性网回归(ElasticNet)</li>
+</ol>
+<p><strong>常用于</strong>：回归，预测标签为连续数值的数据</p>
+</blockquote>
+<h3 id="线性回归（Linear-Regression-LR）"><a href="#线性回归（Linear-Regression-LR）" class="headerlink" title="线性回归（Linear Regression, LR）"></a>线性回归（Linear Regression, LR）</h3><blockquote>
+<p>普通线性回归较为简单，就是用一个线性函数来拟合数据分布，比如对于一个一维的样本，即用 $y = θ_0+θ_1x$ （直线）来拟合数据点分布，对于一个二维样本，即用$z = θ_0+θ_1x + θ_2y$ （平面）来拟合数据点分布，高维的样本 $y = θ_0+θ_1x_1 + θ_2x_2 + …. + θ_nx_n$ 以此类推，但高维的样本无法完全可视化数据点的分布情况，所以较难直观理解。</p>
+<p>方法：</p>
+<ol>
+<li>梯度下降法</li>
+<li>最小二乘法</li>
+</ol>
+</blockquote>
+<h4 id="LR-梯度下降法"><a href="#LR-梯度下降法" class="headerlink" title="LR-梯度下降法"></a>LR-梯度下降法</h4><ul>
+<li><p>我们要求得线性回归模型</p>
+<p>​                 $h_θ(x) = θ_0+θ_1x_1 + θ_2x_2 + …. + θ_nx_n$</p>
+</li>
+</ul>
+<ul>
+<li><p>对于每个样本点 $(i)$ 如下 ，前面的1是为了矩阵相乘方便形成$θ_0$</p>
+<p>​                 $x^{(i)}$   = $$\left[\begin{matrix}1&amp; x_1&amp; x_2&amp;\dots &amp; x_n\end{matrix}\right]$$</p>
+</li>
+</ul>
+<ul>
+<li><p>回归系数</p>
+<p>​                 $θ$ = $$\left[\begin{matrix}θ_0&amp; θ_1&amp; θ_2&amp;\dots &amp; θ_n\end{matrix}\right]$$</p>
+</li>
+</ul>
+<ul>
+<li><p>对于每一个样本，预测值与实际值的差就是  </p>
+<p>​                  $h_θ(x^{(i)}) - y^{(i)} $</p>
+<p>​                     <img src="https://i.imgur.com/WlIwhQ6.png" alt=""></p>
+<p>​                 $h_θ(x) = θx^T = θ_0+θ_1x_1 + θ_2x_2 + …. + θ_nx_n$</p>
+</li>
+</ul>
+<ul>
+<li><p>现在我们就是要求每个样本点  “预测值与实际值的差”  的总和要尽可能的小（设这里为m个样本），那我们就要构造一个以 $θ$ 为自变量的损失函数（注意此时是以 $θ$ 为自变量），设纬度为$n+1$。</p>
+<p>其实损失函数就是均方误差<a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">MSE</a>，而乘个 $\frac{1}{2}$ 是为了后面的求偏导方便平方的消去。    </p>
+<p>​                  $J(θ) = \frac{1}{2m}\sum_{i=1}^m(h_θ(x^{(i)}) - y^{(i)})^2$</p>
+<p>​             <img src="https://i.imgur.com/ueeybPH.png" alt=""> </p>
+<p>​                        <em>假设二维下的损失函数长这样</em></p>
+</li>
+</ul>
+<ul>
+<li><p>我们随机取一个点 $(θ_0, θ_1, …., θ_n)$作为我们的起点。为什么要随机取？这样说吧，梯度下降的过程就像在一副地图内寻宝，先随机一个初始地方，然后在这个地方附近慢慢寻找宝藏，而要找的宝藏就是藏在最底最深的部分（就是我们要求的最小值）。</p>
+<p>对于二维损失函数，假设我们取到了如图的黑点处 $(θ_0, θ_1)$，但显然他对应的损失函数值不是我们最想要的点，我们想要能使损失函数最小的点应该是红色那个，那要如何从我们现在的随机起点（黑点）去到红点的呢？</p>
+<p><img src="https://i.imgur.com/LB0hRfp.png" alt=""> </p>
+</li>
+</ul>
+<ul>
+<li><p>先补充一下，上述我们说到 “寻宝” 一般只能在初始点附近找，但其实如果仅进行这一次“寻宝” （梯度下降），一般只能找到 “这地图里这一块区域的宝藏” （局部最优解），而未必能那么幸运一下就找到 “地图的最大宝藏” (全局最优解)，因为你不能保证你的是在出生点在哪的，所以我们要进行很多次“寻宝”，“寻宝”的次数越多越有可能找到最终宝藏（全局最优解），因为都把地图挖个遍了，具体区别请看<a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">BGD 与 SGD</a> 。</p>
+<p><img src="https://i.imgur.com/aLEfS67.png" alt=""> </p>
+<p>  ​                    </p>
+</li>
+<li><p>那对于每次梯度下降，我们先需要求得该点的梯度，若对梯度概念不太清楚，请看<a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">梯度</a>。对损失函数进行求偏导得：</p>
+<p>​                 $\frac{\partial J}{\partial θ_i}$</p>
+</li>
+</ul>
+<h4 id="LR-最小二乘法"><a href="#LR-最小二乘法" class="headerlink" title="LR-最小二乘法"></a>LR-最小二乘法</h4><ul>
+<li>1</li>
+<li>2</li>
+<li>。。。。。</li>
+</ul>
+<h3 id="局部加权线性回归（Locallly-Weights-Linear-Regression-LWLR）"><a href="#局部加权线性回归（Locallly-Weights-Linear-Regression-LWLR）" class="headerlink" title="局部加权线性回归（Locallly Weights Linear Regression, LWLR）"></a>局部加权线性回归（Locallly Weights Linear Regression, LWLR）</h3><blockquote>
+<p>普通线性回归较为简单，就是用一个线性函数来拟合数据分布，比如对于一个一维的样本，即用 $y = θ_0+θ_1x$ （直线）来拟合数据点分布，对于一个二维样本，即用$z = θ_0+θ_1x + θ_2y$ （平面）来拟合数据点分布，高维的样本 $y = θ_0+θ_1x_1 + θ_2x_2 + …. + θ_nx_n$ 以此类推，但高维的样本无法完全可视化数据点的分布情况，所以较难直观理解。</p>
+<p>方法：</p>
+<ol>
+<li>梯度下降法</li>
+<li>最小二乘法</li>
+</ol>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/Regression Analysis Model（Regression Analysis）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Machine-Leanring-Note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -167,46 +296,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
-<p><code>&lt;!--more--&gt;</code> </p>
-<h3 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h3><ul>
-<li><p><strong>Other</strong></p>
-<blockquote>
-<ol>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">What’s Machine Learning ?</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">How should I learn ?</a></li>
-</ol>
-</blockquote>
-</li>
-<li><p><strong>Supervise Learning Model</strong></p>
-<blockquote>
-<ol>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Regression Analysis Model</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Logistic Regression</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Naive Bayes</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Decision Tree</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">KNN</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">SVM</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">CRF</a></li>
-</ol>
-</blockquote>
-</li>
-<li><p><strong>Non-supervise Learning Model</strong></p>
-<blockquote>
-<ol>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">K-means</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">EM </a></li>
-</ol>
-</blockquote>
-</li>
-<li><p><strong>Ensemble Learning</strong></p>
-<blockquote>
-<ol>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Random Forest</a></li>
-</ol>
-</blockquote>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2018/07/10/Machine-Leanring-Note/#more">阅读全文 >></a>
+        
       
 
       
@@ -280,12 +372,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
-<p><code>&lt;!--more--&gt;</code> </p>
-<h3 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h3><ul>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">偏导</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">梯度</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2018/07/10/Advanced-Mathematics-Note/#more">阅读全文 >></a>
+        
       
 
       
@@ -360,18 +449,9 @@
       
         <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
 <p>learn form <a href="https://www.icourse163.org/course/ZJU-1001615010#/info" target="_blank" rel="noopener">MOOC-概率论与数理统计CAP</a></p>
-<p><code>&lt;!--more--&gt;</code> </p>
-<h3 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h3><ul>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">离散型随机变量与连续型随机变量</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">古典概型、几何概型、条件概率</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">独立事件与互斥事件的区别</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">几种重要的一维和二维概率分布及其特点</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">联合分布、条件分布、边缘分布</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">期望、方差、协方差、相关系数</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">全概率公式与贝叶斯公式</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">MLE 与 MAP</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2018/07/10/Probability-Theory-Note/#more">阅读全文 >></a>
+        
       
 
       
@@ -446,17 +526,9 @@
       
         <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
 <p>learn form <a href="https://www.icourse163.org/course/UESTC-1001615001#/info" target="_blank" rel="noopener">MOOC-线性代数与空间解析几何CAP</a>  and <a href="http://open.163.com/special/opencourse/daishu.html" target="_blank" rel="noopener">麻省理工公开课：线性代数</a></p>
-<p><code>&lt;!--more--&gt;</code> </p>
-<h3 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h3><h6 id="线性代数速成"><a href="#线性代数速成" class="headerlink" title="线性代数速成"></a>线性代数速成</h6><ul>
-<li><a href="https://github.com/Benjamin142857/ML_Linear-Algebra/blob/master/%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5.md" target="_blank" rel="noopener">常见矩阵</a></li>
-<li><a href="https://github.com/Benjamin142857/ML_Linear-Algebra/blob/master/%E7%9F%A9%E9%98%B5%E7%9A%84%E7%BA%BF%E6%80%A7%E8%BF%90%E7%AE%97%E3%80%81%E4%B9%98%E6%B3%95%E3%80%81%E8%BD%AC%E7%BD%AE%E3%80%81%E5%AF%B9%E7%A7%B0%E3%80%81%E9%80%86.md" target="_blank" rel="noopener">矩阵的线性运算、乘法、转置、对称、逆</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">线性方程组求解的初等变换</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Ax=0: 主变量，特解</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Ax=b: 可解性和解的结构</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">矩阵求逆的初等变换法</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">分块矩阵</a></li>
-</ul>
-<h6 id="Linear-Algebra-for-ML"><a href="#Linear-Algebra-for-ML" class="headerlink" title="Linear Algebra for ML"></a>Linear Algebra for ML</h6>
+        
+          <a class="article-more-a" href="/2018/07/10/Linear-Algebra-Note/#more">阅读全文 >></a>
+        
       
 
       
