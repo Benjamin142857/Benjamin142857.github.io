@@ -146,13 +146,276 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Regression Analysis Model（Regression Analysis）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ML/全概率公式与贝叶斯公式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Regression-Analysis-Model（Regression-Analysis）"><a href="#Regression-Analysis-Model（Regression-Analysis）" class="headerlink" title="Regression Analysis Model（Regression Analysis）"></a>Regression Analysis Model（Regression Analysis）</h1><blockquote>
-<h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/k2cQCef.png" alt=""> </p>
+        <h1 id="全概率公式与贝叶斯公式"><a href="#全概率公式与贝叶斯公式" class="headerlink" title="全概率公式与贝叶斯公式"></a>全概率公式与贝叶斯公式</h1><h3 id="全概率公式-Total-probability-formula"><a href="#全概率公式-Total-probability-formula" class="headerlink" title="全概率公式(Total probability formula)"></a>全概率公式(Total probability formula)</h3><p>​    设$B_1,B_2,…B_n$为样本空间$S$ 的一个划分, 全概率公式为：</p>
+<p>​         $P(A) = \sum_{j=1}^n P(B_j)·P(A|B_j)$</p>
+<p><img src="https://i.imgur.com/KF2smKz.png" alt=""> </p>
+<p><strong>举个栗子</strong></p>
+<blockquote>
+<p>设有m个球，n个红球(n&gt;2)，m-n个白球，不放回地抽2个球，求第二次抽到红球的概率, 设第1次抽到红球为事件$B$,  第2次抽到红球为事件$A$, 事件$A$的全概率公式如下:   :   </p>
+</blockquote>
+<p>​      </p>
+<p>​     $P(A) = P(B)·P(A|B) + P(\overline{B})·P(A|\overline{B}))$</p>
+<p>​     $(P(B) + P(\overline{B}) = 1)$  </p>
+<blockquote>
+<p>设有m个球，n种颜色，其中有k个红球(k&gt;2)，不放回地抽2个球，求第二次抽到红球的概率, 设第1次抽到颜色 $j$ 的球为事件$B_j$,  第2次抽到红球为事件$A$, 事件$A$的全概率公式如下:   </p>
+</blockquote>
+<p>​    </p>
+<p>​        $P(A) = \sum_{j=1}^n P(B_j)·P(A|B_j)$</p>
+<p>​       $ (\sum_{j=1}^n P(B_j) = 1)$</p>
+<p><strong>综上可得</strong></p>
+<p>全概率公式就是设$B_1,B_2,…B_n$为样本空间$S$ 的一个划分 ，而求$A$事件的概率可在各个$B$事件发生的前提下发生$A$的概率的总和，亦可以路径图理解，如下：</p>
+<p>​     <img src="https://i.imgur.com/zWxWJlh.png" alt=""> </p>
+<h3 id="贝叶斯公式-Bayes-formula"><a href="#贝叶斯公式-Bayes-formula" class="headerlink" title="贝叶斯公式(Bayes formula)"></a>贝叶斯公式(Bayes formula)</h3><ul>
+<li>简式贝叶斯公式：</li>
+</ul>
+<p>​                       $P(B|A) = \frac{P(B)·P(A|B)}{P(A)}$</p>
+<ul>
+<li><p>若$B_1,B_2,…B_n$为样本空间$S$ 的一个划分，可将$P(A)$展开为全概率公式：</p>
+<pre><code>$P(B_i|A) = \frac{P(B_i)·P(A|B_i)}{\sum_{j=1}^n P(B_j)·P(A|B_j)}$
+</code></pre></li>
+</ul>
+<p><strong>先验概率(Prior probability)与后验概率(posterior probability)与似然值(likelihood)</strong></p>
+<p>​     </p>
+<p>​     $P(B|A) = \frac{P(B)·P(A|B)}{P(A)}$    →   $posterior = \frac{prior · likelihood}{evidence}$</p>
+<p>​    </p>
+<p>​    公式中的$P(B|A)$就是后验概率，$P(B)$就是先验概率，$P(A|B)$就是似然值。</p>
+<p>​    由公式可知，“后验$P(B|A)$” 受 “先验$P(B)$” 和 “似然$P(A|B)$” 影响，但并不取决于先验概率或似然值。比如$P(B)$很大，只要$P(A|B)$足够小，$P(B|A)$也可以很小。同理$P(A|B)$很小，若$P(B)$足够大，$P(B|A)$也可以很大。</p>
+<p><strong>举个栗子</strong></p>
+<blockquote>
+<p>一年365天，有36天下雨，把下雨频率当作每天下雨的概率，我们近似为10%，天气预报人员会对每天进行天气预测，假如一年内下雨的时候，天气预报人员都预报了下雨，而有一年内64天没下雨的时候天气预报人员也预报了下雨。那现在天气预报人员预测明天会下雨，那明天真的会下雨的概率是多少？</p>
+</blockquote>
+<p>​        $P(下雨 | 预测明天下雨) = \frac{P(下雨) · P(预测明天下雨 | 下雨)}{P(预测明天下雨)} $</p>
+<p>​                         $= \frac{0.1 · 1}{100/365}$</p>
+<p>​                         $=0.365$</p>
+<p>​    由此可得，即使下雨的时候天气预报人员都预报准了，即$P(预测明天下雨 | 下雨)=1$, 好像准确率好高的样子，人们也会根据天气预报人员下雨的天数都预测准了的现象，惯性地感觉天气预报人员预报明天下雨就肯定下雨了，这就是先验影响了人们的惯性感觉，</p>
+<p>​    但其实根据贝叶斯公式，若先验概率太小，哪怕天气人员预测明天会下雨，明天真的会下雨的概率也就只有36.5%。</p>
+<blockquote>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/ML/全概率公式与贝叶斯公式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/Python/">Python</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/Python/" class="archive-article-date">
+  	<time datetime="2018-07-13T07:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
+        
+          <a class="article-more-a" href="/2018/07/13/Python/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/Python/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Machine-Leanring-Note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Machine-Leanring-Note/">Machine Learning Note</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine-Leanring-Note/" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
+        
+          <a class="article-more-a" href="/2018/07/10/Machine-Leanring-Note/#more">阅读全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Machine-Leanring-Note/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Regression Analysis Model（Regression Analysis）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Regression Analysis Model（Regression Analysis）/">Regression Analysis Model</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Regression Analysis Model（Regression Analysis）/" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Regression-Analysis-Model（Regression-Analysis）"><a href="#Regression-Analysis-Model（Regression-Analysis）" class="headerlink" title="Regression Analysis Model（Regression Analysis）"></a>Regression Analysis Model（Regression Analysis）</h1><h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/k2cQCef.png" alt=""></p>
+<blockquote>
 <p><strong>回归分析（Regression Analysis）</strong>：一种统计学上分析数据的方法，目的在于了解两个或多个变数间是否相关、相关方向与强度，并建立数学模型以便观察特定变数来预测研究者感兴趣的变数。</p>
 <p><strong>难度评估</strong>：:star::star:</p>
 <p><strong>回归分析主要算法</strong>：</p>
@@ -167,10 +430,9 @@
 </ol>
 <p><strong>常用于</strong>：回归，预测标签为连续数值的数据</p>
 </blockquote>
-<h3 id="线性回归（Linear-Regression-LR）"><a href="#线性回归（Linear-Regression-LR）" class="headerlink" title="线性回归（Linear Regression, LR）"></a>线性回归（Linear Regression, LR）</h3><blockquote>
+<h3 id="线性回归（Linear-Regression-LR）"><a href="#线性回归（Linear-Regression-LR）" class="headerlink" title="线性回归（Linear Regression, LR）"></a>线性回归（Linear Regression, LR）<img src="https://i.imgur.com/azd8ocz.png" alt=""></h3><blockquote>
 <p>普通线性回归较为简单，就是用一个线性函数来拟合数据分布，比如对于一个一维的样本，即用 $y = θ_0+θ_1x$ （直线）来拟合数据点分布，对于一个二维样本，即用$z = θ_0+θ_1x + θ_2y$ （平面）来拟合数据点分布，高维的样本 $y = θ_0+θ_1x_1 + θ_2x_2 + …. + θ_nx_n$ 以此类推，但高维的样本无法完全可视化数据点的分布情况，所以较难直观理解。</p>
 <p>线性回归虽然简单基础，但其思想很重要！！！</p>
-<p><img src="https://i.imgur.com/azd8ocz.png" alt="">  </p>
 <p>方法：</p>
 <ol>
 <li>梯度下降法</li>
@@ -283,151 +545,6 @@
     <div class="article-info article-info-index">
       
       
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/Regression Analysis Model（Regression Analysis）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/Python/">Python</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/Python/" class="archive-article-date">
-  	<time datetime="2018-07-13T07:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
-        
-          <a class="article-more-a" href="/2018/07/13/Python/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/Python/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Machine-Leanring-Note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine-Leanring-Note/">Machine Learning Note</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Machine-Leanring-Note/" class="archive-article-date">
-  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
-        
-          <a class="article-more-a" href="/2018/07/10/Machine-Leanring-Note/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -443,7 +560,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine-Leanring-Note/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/10/Regression Analysis Model（Regression Analysis）/">展开全文 >></a>
         </p>
       
 
@@ -821,11 +938,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
               </li>
             
             <div class="clearfix"></div>
