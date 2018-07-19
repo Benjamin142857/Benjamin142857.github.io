@@ -271,19 +271,19 @@
 
 
   
-    <article id="post-Mathematics/Probability Theory Note/(5)MLE 与 MAP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(5)MLE 与 MAP/">概率论(五)：MLE 与 MAP</a>
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/">概率论(六)：CDF,  PDF,  PMF</a>
     </h1>
   
 
         
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(5)MLE 与 MAP/" class="archive-article-date">
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/" class="archive-article-date">
   	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
 </a>
         
@@ -292,6 +292,134 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!--*more*--> 
+<blockquote>
+<p><strong>Content</strong></p>
+<ol>
+<li>CDF - 累积分布函数</li>
+<li>PDF - 概率密度函数</li>
+<li>PMF - 概率质量函数</li>
+<li>CDF 与 PDF 的关系</li>
+</ol>
+</blockquote>
+<h3 id="CDF-累积分布函数（Cumulative-distribution-）"><a href="#CDF-累积分布函数（Cumulative-distribution-）" class="headerlink" title="CDF - 累积分布函数（Cumulative distribution ）"></a>CDF - 累积分布函数（Cumulative distribution ）</h3><blockquote>
+<p><strong>定义</strong>：随机变量X，对任意实数 $x_0$ ，称函数</p>
+<p>$F(x) = P(X≤x)$  或  $F_X(x)$</p>
+<p>为X的概率分布函数，简称分布函数，任何随机变量都有相应的分布函数。</p>
+<p><strong>Content</strong></p>
+<ol>
+<li>$F(x)$ 的性质</li>
+<li>四条常用计算公式</li>
+<li>$F(x)$的几何意义</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>$F(x)$ <strong>的性质：</strong></p>
+<ul>
+<li><p>$0\leq F(x) \leq 1$</p>
+</li>
+<li><p>$F(x)$ 单调不减</p>
+<p>​     $\because F(x_2) - F(x_1) = F(x_1<x \leq="" x_2)=""> 0$ </x></p>
+</li>
+<li><p>$F(-\infty) = 0, F(+\infty) = 1$</p>
+</li>
+<li><p>$F(x)$是右连续函数，即 $F(x+0) = F(x)$</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>四条常用计算公式</strong><ul>
+<li>$P(a＜X ≤ b) = F(b) - F(a)$</li>
+<li>$P(a \leq X &lt; b) = F(b-0) - F(a-0)$</li>
+<li>$P(a＜X &lt; b) = F(b-0) - F(b)$</li>
+<li>$P(a \leq X \leq  b) = F(b) - F(a-0)$</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>$F(x)$<strong>的几何意义</strong></p>
+<p>函数的几何意义就是随着x的增加对于事件发生概率的一个累积，当$\begin{cases} x \rightarrow - \infin, F(x) = 0 \ x\rightarrow +\infty, F(x)=1\end{cases}$</p>
+<p><img src="https://i.imgur.com/drLiazo.png" alt=""> </p>
+</li>
+</ul>
+<ul>
+<li><p><strong>对于离散型随机变量</strong></p>
+<p><img src="https://i.imgur.com/h9lm9Cd.png" alt=""> </p>
+<p><img src="https://i.imgur.com/FJgO1As.png" alt=""> </p>
+<p>一般地，离散型随机变量的分布函数为阶梯函数，$F(x)$ 在$x=x_k,(k=1,2,…)$处有跳跃，其跳跃值为$p_k = P${$X=x_k$}，因此对于某一个点的概率可求， $P(X=x_k) = F(x_k)-F(x_{k-1})$</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>对于连续型随机变量</strong></p>
+<p><img src="https://i.imgur.com/xTGTTMh.png" alt=""> </p>
+<p>连续型随机变量的CDF，一般地，对于某一个点的概率需对其CDF求导来求。</p>
+</li>
+</ul>
+<h3 id="PDF-概率密度函数（Probability-Density-Function）"><a href="#PDF-概率密度函数（Probability-Density-Function）" class="headerlink" title="PDF - 概率密度函数（Probability Density Function）"></a>PDF - 概率密度函数（Probability Density Function）</h3><blockquote>
+<p><strong>定义</strong>：对于随机变量 $X$ 的分布函数 $F(x)$，若存在非负的函数 $f(x)$ ，使对于任意实数 $x$ 有：</p>
+<p>$F(x) = \int_{-\infty}^xf(t) dt$</p>
+<p>则称 $X$ 为连续型随机变量，其中 $f(x)$ 称为 $X$ 的<strong>概率密度函数</strong>，简称<strong>概率密度</strong>，有时也写为 $f_X(x)$</p>
+<ul>
+<li>只有连续型随机变量才有PDF，PDF对应的一定是连续型随机变量</li>
+</ul>
+<p><strong>Content</strong></p>
+<ol>
+<li>$f(x)$的性质</li>
+<li>$f(x)$的几何意义</li>
+<li>“支撑” 的概念</li>
+</ol>
+</blockquote>
+<ul>
+<li>$f(x) $ <strong>的性质：</strong></li>
+</ul>
+<ol>
+<li><p>$f(x) \geq 0$</p>
+</li>
+<li><p>$\int_{-\infty}^{+\infin}f(x) dx = 1$</p>
+<p>$\because F(+\infin) = 1$</p>
+</li>
+<li><p>$\forall x_1,x_2(x_1&lt;x_2)$</p>
+<p>$P(x_1&lt;X \leq x_2) = \int_{x_1}^{x_2}f(t)dt$</p>
+<p>$\Rightarrow \forall a,P(X=a)=0$   “在任意一点上的面积为0”</p>
+</li>
+<li><p>在 $f(x)$ 连续点 $x$ ，$F’(x) = f(x)$</p>
+<p>$f(x) = lim_{\Delta x \rightarrow 0} \frac{F(x+\Delta x)-F(x)}{\Delta x}$</p>
+<p>当 $\Delta x$很小时，$P(x &lt; X \leq x+ \Delta x) \approx f(x)·\Delta x$</p>
+<p>即表示 $X$ 落在点 $x$ 附近 $(x, x+ \Delta x]$ 的概率近似等于 $f(x) \Delta x$</p>
+</li>
+</ol>
+<ul>
+<li><p>$f(x)$ <strong>的几何意义：</strong></p>
+<p>函数区域内的面积（积分），即为该区域的概率，所以有$\int_{-\infty}^{+\infin}f(x) dx = 1$</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/gjTTCWj.png" alt=""> </p>
+<ul>
+<li><p><strong>“支撑” 的概念</strong>：</p>
+<p>因为 $F(x)$ 单调不减，所以 $f(x) \geq 0$ 恒成立，对于 $f(x)&gt;0$的部分，即为 $X$ 的取值范围，称为“支撑”</p>
+</li>
+</ul>
+<p>  如何理解？我们先看 $F(x)$ ，$F(x)$ 不增的部分就对应着 $f(x)=0$的部分。</p>
+<p>  对于 $F(x)$ 不增即 $X$ 是取不到那个范围的，因为概率根本没有增加，而对于 $F(x)$ 增的部分肯定是 $X$ 能取到的地方，所以概率才会增加，即 $f(x)&gt;0$ 的部分，就是这些部分支撑着整个 $F(x)$ 呈现上升趋势，支撑着 $f(x)$ 大于 0（拱起来），所以称它为支撑。 </p>
+<h3 id="PMF-概率质量函数（Probability-Mass-Function）"><a href="#PMF-概率质量函数（Probability-Mass-Function）" class="headerlink" title="PMF - 概率质量函数（Probability Mass Function）"></a>PMF - 概率质量函数（Probability Mass Function）</h3><blockquote>
+</blockquote>
+<h3 id="CDF-与-PDF"><a href="#CDF-与-PDF" class="headerlink" title="CDF 与 PDF"></a>CDF 与 PDF</h3><blockquote>
+<p>CDF - 累积分布函数</p>
+<p>   $f(x) = P(X \leq x)$</p>
+<p>PDF - 概率密度函数</p>
+<p>   $F(x) = \int_{- \infin}^xP(X \leq x)$</p>
+<p>PDF是CDF的积分，CDF是PDF的求导</p>
+</blockquote>
+<p><img src="https://i.imgur.com/yTtSXO9.png" alt=""> </p>
+<ul>
+<li><strong>CDF</strong></li>
+</ul>
+<p><img src="https://i.imgur.com/drLiazo.png" alt=""> </p>
+<ul>
+<li><p><strong>PDF</strong></p>
+<p><img src="https://i.imgur.com/3GGTwVq.png" alt=""> </p>
+</li>
+</ul>
 
       
 
@@ -315,7 +443,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(5)MLE 与 MAP/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/">展开全文 >></a>
         </p>
       
 
@@ -345,19 +473,19 @@
 
 
   
-    <article id="post-Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/">概率论(八)：几种重要的一维概率分布及其特点</a>
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">概率论(三)：联合分布、条件分布、边缘分布</a>
     </h1>
   
 
         
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/" class="archive-article-date">
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/" class="archive-article-date">
   	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
 </a>
         
@@ -366,212 +494,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!--*more*--> 
-<blockquote>
-<p><strong>Content</strong></p>
-<ul>
-<li><p>离散型随机变量</p>
-<ol>
-<li>退化分布</li>
-<li>伯努利分布</li>
-<li>二项分布</li>
-<li>泊松分布</li>
-<li>几何分布</li>
-<li>超几何分布</li>
-</ol>
-</li>
-<li><p>连续型随机变量</p>
-<ol>
-<li>均匀分布</li>
-<li>指数分布</li>
-<li>高斯分布</li>
-</ol>
-</li>
-</ul>
-</blockquote>
-<h3 id="退化分布（Degenerate-Distribution）"><a href="#退化分布（Degenerate-Distribution）" class="headerlink" title="退化分布（Degenerate Distribution）"></a>退化分布（Degenerate Distribution）</h3><blockquote>
-<p>离散型随机变量</p>
-<p>亦称”确定性分布“，”凝聚分布“，”单点分布“，就是整个样本空间只有一个随机变量取值，而且它的概率一定为1.</p>
-</blockquote>
-<p> <img src="https://i.imgur.com/ngcjdHi.png" alt=""> </p>
-<ul>
-<li><p>设X表示必然事件c:</p>
-<p> $P(X=c) = 1$</p>
-</li>
-</ul>
-<h3 id="伯努利分布（Bernoulli-Distribution）"><a href="#伯努利分布（Bernoulli-Distribution）" class="headerlink" title="伯努利分布（Bernoulli Distribution）"></a>伯努利分布（Bernoulli Distribution）</h3><blockquote>
-<p>离散型随机变量</p>
-<p>亦称“两点分布”，就是整个样本空间只有两种情况，不是其一就是其二.</p>
-</blockquote>
-<p> <img src="https://i.imgur.com/L2jHCOJ.png" alt=""> </p>
-<ul>
-<li><p>设X表示再一次Bernoulli试验中某事件发生:</p>
-<p>  $P(X=1) = p$</p>
-<p>  $P(X=0)=1-p$</p>
-</li>
-</ul>
-<h3 id="二项分布（Binomial-Distribution）"><a href="#二项分布（Binomial-Distribution）" class="headerlink" title="二项分布（Binomial Distribution）"></a>二项分布（Binomial Distribution）</h3><blockquote>
-<p>离散型随机变量</p>
-<p>本质上就是 “n重Bernoulli distribution”，进行了多次的伯努利试验，而每一次都是相互独立的。</p>
-<p>设X表示n重Bernoulli试验中某事件发生的次数，X的可能取值有$0, 1, 2, …, n$:</p>
-<p>$P(X=k) = C_n^kp^k(1-p)^{n-k}$</p>
-<p>上述情况称为X服从参数为n，p的伯努利分布，记为</p>
-<p>$X$~$B(n, p)$</p>
-</blockquote>
-<p><img src="https://i.imgur.com/7eJ1YId.png" alt=""> </p>
-<h3 id="泊松分布（Poisson-Distribution）"><a href="#泊松分布（Poisson-Distribution）" class="headerlink" title="泊松分布（Poisson Distribution）"></a>泊松分布（Poisson Distribution）</h3><blockquote>
-<p>离散型随机变量</p>
-<p>若X的概率分布律为：</p>
-<p>​      $P(X=k) = \frac{\lambda^ke^{-\lambda}}{k!}，k=0,1,2…$</p>
-<p>其中$\lambda＞0$，就称X服从参数为$\lambda$的泊松分布</p>
-<p>记为  $X$~$\pi(\lambda)$ 或 $X$~$P(\lambda)$</p>
-</blockquote>
-<p><img src="https://i.imgur.com/mBS7anE.png" alt=""> </p>
-<p>​     $P(X=0) + P(X=1) + … P(X=+∞) = e^{-\lambda}·\sum_{k=0}^{+∞}\frac{\lambda^k}{k!}$，而根据泰勒展开式可得：$e^\lambda = \sum_{k=0}^{+∞}\frac{\lambda^k}{k!}$，所以可知概率之和为1.</p>
-<ul>
-<li><p>Poisson Distribution 的用途：</p>
-<ul>
-<li>某人一天内收到的微信的数量</li>
-<li>来到某公共汽车站的乘客</li>
-<li>某放射性物质发射出的粒子</li>
-<li>显微镜下某区域中的白血球</li>
-</ul>
-</li>
-</ul>
-<p>  如果某事件以固定强度$\lambda$，随机且独立地出现，该时间在单位时间内出现的次数（个数）可以看成是服从泊松分布。</p>
-<ul>
-<li><p>Poisson distribution 与 Binomial distribution 的关系:</p>
-<p>当$n＞10, p＜0.1$时，</p>
-<p>$C_n^kp^k(1-p)^{n-k} ≈ \frac{e^{-\lambda}\lambda^k}{k!}$，其中  $\lambda = np$</p>
-<p>即当n很大，p很小时，$B(n, p) ≈ P(np)$ </p>
-</li>
-</ul>
-<h3 id="几何分布（Geometric-Distribution）"><a href="#几何分布（Geometric-Distribution）" class="headerlink" title="几何分布（Geometric Distribution）"></a>几何分布（Geometric Distribution）</h3><blockquote>
-<p>离散型随机变量</p>
-<p>其实就是进行多次Bernoulli试验直到A事件发生为止</p>
-<p>设X为进行试验的次数直到A事件发生，A事件发生的概率为 $p$</p>
-<p> $P(X=k) = (1-p)^kp，k=1,2,3,…$</p>
-<p>那称X服从参数为 $p$ 的几何分布，记为</p>
-<p> $X$ ~ $Geom(p)$</p>
-</blockquote>
-<p><img src="https://i.imgur.com/8Kh3Rbj.png" alt=""> </p>
-<p><strong>举个栗子</strong>:chestnut:</p>
-<blockquote>
-<p>假设我们买一种中奖率为1%彩票，每一次中奖的概率都一样，买了k次直到中奖</p>
-<p>单独买第k次的中奖概率都比第k-1次要低，但只要次数足够多，买了k次就中奖的概率就是前k次中奖概率的总和，如上图。    </p>
-</blockquote>
-<h3 id="超几何分布（Hypergeometric-Distribution）"><a href="#超几何分布（Hypergeometric-Distribution）" class="headerlink" title="超几何分布（Hypergeometric Distribution）"></a>超几何分布（Hypergeometric Distribution）</h3><blockquote>
-<p>离散型随机变量</p>
-<p>待补</p>
-</blockquote>
-<h3 id="均匀分布（Uniform-Dsitribution）"><a href="#均匀分布（Uniform-Dsitribution）" class="headerlink" title="均匀分布（Uniform Dsitribution）"></a>均匀分布（Uniform Dsitribution）</h3><blockquote>
-<p>连续型随机变量</p>
-<p>若 $X$ 的PDF为 $f(x)\begin{cases} \frac{1}{b-a}, x\in(a, b) \0, otherwise \end{cases}$</p>
-<p>就称 $X$ 服从(a, b)上的Uniform distribution</p>
-<p>记为 $X$~$U(a, b)$ 或 $X$~$Unif(a, b)$</p>
-</blockquote>
-<ul>
-<li>$X$~$U(a, b)$ 的PDF图</li>
-</ul>
-<p><img src="https://i.imgur.com/cFh6ypB.png" alt=""> </p>
-<ul>
-<li>$X$~$U(a, b)$ 的CDF图</li>
-</ul>
-<p><img src="https://i.imgur.com/IEiVbAu.png" alt=""> </p>
-<ul>
-<li>$X$~$U(a, b)$的计算<ol>
-<li>$P(x\in I) = \int_If(x)dx$</li>
-<li>$P(x \in I) = \frac{I \bigcap (a, b) 的长度}{(a, b) 的长度}$</li>
-</ol>
-</li>
-</ul>
-<h3 id="指数分布（Exponential-Distribution）"><a href="#指数分布（Exponential-Distribution）" class="headerlink" title="指数分布（Exponential Distribution）"></a>指数分布（Exponential Distribution）</h3><blockquote>
-<p>连续型随机变量</p>
-<p>若 $X$ 的概率密度函数为 $f(x) = \begin{cases} \lambda e^{-\lambda x} ，x&gt;0\ 0，x \leq 0\end{cases}   (\lambda &gt;0)$</p>
-<p>则称 $X$ 服从参数为 $\lambda$ 的Exponential distribution</p>
-<p>记为 $X$~$E(\lambda)$ 或 $X$~$Exp(\lambda)$</p>
-</blockquote>
-<p><img src="https://i.imgur.com/GqVezMO.png" alt=""></p>
-<ul>
-<li><p><strong>重要性质：$X$~$E(\lambda)$具有无记忆性</strong></p>
-<p>$P(X&gt;a|X&gt;b) = P(X&gt;a-b)$</p>
-</li>
-</ul>
-<p>  <img src="https://i.imgur.com/9lUcP9f.png" alt=""> </p>
-<ul>
-<li><p><strong>指数分布用途</strong></p>
-<ol>
-<li>可以用来表示独立随机事件发生的时间间隔，比如旅客进机场的时间间隔、中文维基百科新条目出现的时间间隔等；</li>
-<li>在排队论中，一个顾客接受服务的时间长短也可以用指数分布来近似；</li>
-<li>无记忆性的现象；</li>
-</ol>
-</li>
-</ul>
-<h3 id="高斯分布（Guassian-Distribution-Normal-Distribution）"><a href="#高斯分布（Guassian-Distribution-Normal-Distribution）" class="headerlink" title="高斯分布（Guassian Distribution / Normal Distribution）"></a>高斯分布（Guassian Distribution / Normal Distribution）</h3><blockquote>
-<p>连续型随机变量</p>
-<p>若 $X$ 的PDF为</p>
-<p>$f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},  (-\infty &lt; x &lt; \infty)$</p>
-<p>就称 $X$ 服从参数为 $\mu, \sigma$ 的高斯分布（或正太分布，或误差分布）</p>
-<p>记为 $X~N(\mu, \sigma^2)$</p>
-</blockquote>
-<p><img src="https://i.imgur.com/al4N1PI.png" alt=""> </p>
-<ul>
-<li><p><strong>两个参数的含义：</strong></p>
-<ul>
-<li><p>$\sigma$：称为尺度参数，会决定曲线分散程度。当固定 $\mu$ ， $\sigma$ 越小，图形越高越瘦，$\sigma$ 越大，图形越矮越胖。</p>
-</li>
-<li><p>$\mu$：称为位置参数，会决定对称轴的位置，当固定 $\sigma$ ，改变 $\mu$ 相当于将图像沿 $x$ 轴平移，图形整体形状不变。</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>正态分布的概率计算：</strong></p>
-<p>若 $X$~$N(\mu, \sigma^2)$，对实数 $x$ </p>
-<p>$P(X \leq x) = F(x) = \frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^xe^{\frac{(t-\mu)^2}{2\sigma^2}dt}$</p>
-<p>但积分算不出来，于是我们一般会将其转化为标准正态，然后利用<a href="https://en.wikipedia.org/wiki/Standard_normal_table" target="_blank" rel="noopener">标准正态分布表</a>来求。</p>
-<p>于是用到了以下性质：</p>
-<p>​        当$X$~ $N(\mu,\sigma^2)$时，$\frac{X-\mu}{\sigma}$~$N(0,1)$</p>
-</li>
-</ul>
-<p>  <strong>举个栗子</strong>:chestnut:</p>
-<blockquote>
-<p>一批钢材长度(cm) $X$~$N(\mu,\sigma^2)$，$\mu=100$，$\sigma=2$，</p>
-<p>求：</p>
-<ol>
-<li>这批钢材长度小于97.8的概率；</li>
-<li>这批钢材长度落在区间(97.8,103)的概率；</li>
-</ol>
-</blockquote>
-<p>  <img src="https://i.imgur.com/AKESksM.png" alt=""> </p>
-<ul>
-<li><p><strong>标准正态分布</strong></p>
-<p><img src="https://i.imgur.com/c4sZQO5.png" alt=""> </p>
-</li>
-</ul>
-<ul>
-<li><p><strong>正态分布的用途：</strong></p>
-<ul>
-<li><p>自然界和人类社会中很多现象可以看作正态分布</p>
-<ul>
-<li>人的生理尺寸（身高、体重）；</li>
-<li>医学检验指标（红细胞数、血小板）；</li>
-<li>测量误差；</li>
-<li>等等</li>
-</ul>
-</li>
-<li><p>多个随机变量的和可以用正态分布来近似(中心极限定理)</p>
-<ul>
-<li><p>某位同学完成所有作业的时间；</p>
-</li>
-<li><p>二项分布</p>
-</li>
-<li><p>等等</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
       
 
@@ -595,7 +517,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">展开全文 >></a>
         </p>
       
 
@@ -747,11 +669,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
               </li>
             
             <div class="clearfix"></div>
