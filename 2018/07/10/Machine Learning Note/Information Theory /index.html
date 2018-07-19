@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Mathematic | Benjamin&#39;s Blog</title>
+  <title>Information Theory Note | Benjamin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Benjamin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Mathematic/index.html">
+  <meta name="description" content="Information Theory NoteAuthor : Benjamin142857   C.Shannon 在早期为研究信道通信提出了信息论，现代世界的发展很大贡献都源自信息论。 Content  Entropy Information Gain Information Gain Ratio   Entropy - 熵    1948 年，香农提出了信息熵的概念，才解决了对信息的量化">
+<meta name="keywords" content="Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Information Theory Note">
+<meta property="og:url" content="http://yoursite.com/2018/07/10/Machine Learning Note/Information Theory /index.html">
 <meta property="og:site_name" content="Benjamin&#39;s Blog">
+<meta property="og:description" content="Information Theory NoteAuthor : Benjamin142857   C.Shannon 在早期为研究信道通信提出了信息论，现代世界的发展很大贡献都源自信息论。 Content  Entropy Information Gain Information Gain Ratio   Entropy - 熵    1948 年，香农提出了信息熵的概念，才解决了对信息的量化">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/DbNqRH5.png">
+<meta property="og:image" content="https://i.imgur.com/qQ90PzN.jpg">
+<meta property="og:image" content="https://i.imgur.com/EV7ZPDI.png">
+<meta property="og:image" content="https://i.imgur.com/dBAbTNn.png">
+<meta property="og:image" content="https://i.imgur.com/u2JeiR3.jpg">
+<meta property="og:updated_time" content="2018-07-19T09:45:45.417Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Benjamin&#39;s Blog">
+<meta name="twitter:title" content="Information Theory Note">
+<meta name="twitter:description" content="Information Theory NoteAuthor : Benjamin142857   C.Shannon 在早期为研究信道通信提出了信息论，现代世界的发展很大贡献都源自信息论。 Content  Entropy Information Gain Information Gain Ratio   Entropy - 熵    1948 年，香农提出了信息熵的概念，才解决了对信息的量化">
+<meta name="twitter:image" content="https://i.imgur.com/DbNqRH5.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -150,405 +161,246 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Machine Learning Note/Information Theory " class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Information Theory Note
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine Learning Note/Information Theory /" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<h1 id="Information-Theory-Note"><a href="#Information-Theory-Note" class="headerlink" title="Information Theory Note"></a>Information Theory Note</h1><h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/DbNqRH5.png" alt=""> </p>
+<blockquote>
+<p>C.Shannon 在早期为研究信道通信提出了信息论，现代世界的发展很大贡献都源自信息论。</p>
+<p><strong>Content</strong></p>
+<ol>
+<li>Entropy</li>
+<li>Information Gain</li>
+<li>Information Gain Ratio</li>
+</ol>
+</blockquote>
+<h3 id="Entropy-熵"><a href="#Entropy-熵" class="headerlink" title="Entropy - 熵"></a>Entropy - 熵</h3><hr>
+<p><img src="https://i.imgur.com/qQ90PzN.jpg" alt=""> </p>
+<blockquote>
+<p>1948 年，香农提出了信息熵的概念，才解决了<strong>对信息的量化度量</strong>问题。</p>
+<p>一条信息的信息量大小和它的不确定性有直接的关系。比如说，我们<strong>要搞清楚一件非常非常不确定的事</strong>，或是我们一无所知的事情，就<strong>需要了解大量的信息</strong>。相反，如果我们<strong>对某件事已经有了较多的了解</strong>，我们<strong>不需要太多的信息</strong>就能把它搞清楚。所以，从这个角度，我们可以认为，<strong>信息量的度量就等于不确定性的多少</strong>。</p>
+</blockquote>
+<p>香农熵的定义是一种比较<strong>Heuristic</strong>的思想。</p>
+<p>我们最开始是先来研究<strong>怎么区分信息间信息量大小</strong>。</p>
+<p>假如我们用<strong>H来代表信息量的大小</strong>，那<strong>信息量的大小H</strong>和什么有关？举了例子：我们联想这样一个问题：</p>
+<blockquote>
+<ol>
+<li>一个同学接到了一个电话，是他妈打过来的，和他说天气转冷，记得穿秋裤。（然后问这个同学，电话包含的信息量是多少？显然现在比较难准确回答）</li>
+<li>然后这个同学又接到一个电话，是他导师打过来的，和他说他的论文被一所国外的知名大学选中了，现在获得了出国留学的名额（很明显，现在这个电话和第一个电话相比，信息量就感觉大很多）</li>
+</ol>
+</blockquote>
+<p><img src="https://i.imgur.com/EV7ZPDI.png" alt=""> </p>
+<p>由上述可知，第一通电话的概率很大，因为妈妈会经常打来电话给予关心，是比较规律性的行为，会让人觉得很平常，信息量较少。而第二通电话的概率一般是很小的，总会让人很意外，觉得突如其来的信息量很大，需要消化一下。</p>
+<p>所以<strong>信息量的大小H</strong>就此和<strong>概率P</strong>有了联系，那我们就是要找一个函数来<strong>构建 H 与 P 的关系 H(P)</strong>，它们需满足以下规则：</p>
+<blockquote>
+<ol>
+<li>概率越大的事件所带来的信息量越小，<strong>所以H与P是成反比关系</strong>。</li>
+<li>信息之间可以说是独立的，所以满足可加性。比如包含两个信息信息量的$H(P_1, P_2)$ 要等价于两个包含一个信息的信息量的叠加。 即$H(P_1, P_2) = H(P_1) + H(P_2)$</li>
+<li>信息量大小是非负的，$H(P) ≥ 0$</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>综上规则，香农就把H(p)定义为以下关系：</p>
+<p>  ​         $H(P) = -log_2(P)$    </p>
+</li>
+</ul>
+<p>​      <img src="https://i.imgur.com/dBAbTNn.png" alt="">  </p>
+<p>这个关系同时能满足：</p>
+<blockquote>
+<ol>
+<li>因为加了负号，H与P成反比关系</li>
+<li>符合叠加，对于对数函数，$H(P_1P_2) = H(P_1) + H(P_2)$</li>
+<li>$P∈[0, 1], H ∈ [0, +∞]$</li>
+</ol>
+</blockquote>
+<p>那现在定义了 <strong>信息量大小H</strong> 与 <strong>信息概率P</strong> 之间的关系$H = -log_2(P)$后，我们要研究一个<strong>含有多个信息</strong> 的 <strong>信息系统</strong> 的 <strong>信息混乱程度</strong>，那我们只需就求这个信息系统的期望值即可，即<strong>HP</strong></p>
+<p>​             $E(H) = P_1H_1 + P_2H_2 + … +P_nH_n = \sum{(PH)} = \sum{(P · -log_2P)}$</p>
+<p>这就是著名的香农熵Entropy:</p>
+<p>​             $Entropy = -\sum_{i=1}^n[P(x_i)·log_2P(x_i)]$</p>
+<blockquote>
+<p>附：<a href="E:\#Else_document\Items\#Topview\Machine Learning Note\( -" target="_blank" rel="noopener">Decision Tree 番外篇（一）- Entropy 与 IG 在DT中的意义</a>Decision Tree 番外篇(一).md)                                          </p>
+</blockquote>
+<h3 id="Information-Gain-信息增益"><a href="#Information-Gain-信息增益" class="headerlink" title="Information Gain - 信息增益"></a>Information Gain - 信息增益</h3><hr>
+<p><img src="https://i.imgur.com/u2JeiR3.jpg" alt=""> </p>
+<blockquote>
+<p>在概率论和信息论中，信息增益是非对称的，用以度量两种概率分布P和Q的差异。信息增益描述了当使用Q进行编码时，再使用P进行编码的差异。通常P代表样本或观察值的分布，也有可能是精确计算的理论分布。Q代表一种理论，模型，描述或者对P的近似。 </p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>thanks~~~ (⊙v⊙)<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/Alipay_QRcode.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wechat_QRcode.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">概率论(三)：联合分布、条件分布、边缘分布</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/10/Machine Learning Note/Information Theory /" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/#Content/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/07/10/Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Machine Learning 番外篇（一）- Philosophy of Machine Learning
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/10/Machine Learning Note/3. Decision Tree/DT番外篇(一) - Entropy&GI在DT中的意义/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Decision Tree 番外篇(一) - Entropy 与 IG 在DT中的意义</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/#Content/">Mathematic_Note</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/">概率论(十一)：中心极限定理与大数定理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/">概率论(二)：独立事件与互斥事件的区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/">概率论(十)：期望、方差、协方差、相关系数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/">概率论(四)：全概率公式与贝叶斯公式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/">概率论(一)：离散型随机变量与连续型随机变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/">概率论(七)：X 分布与 Y(X) 分布的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/">概率论(六)：CDF,  PDF,  PMF</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/">概率论(八)：几种重要的一维概率分布及其特点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/Mathematic/page/2/">2</a><a class="extend next" rel="next" href="/tags/Mathematic/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -572,9 +424,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

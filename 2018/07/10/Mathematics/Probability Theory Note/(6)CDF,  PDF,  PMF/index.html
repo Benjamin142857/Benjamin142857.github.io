@@ -6,15 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Mathematic | Benjamin&#39;s Blog</title>
+  <title>概率论(六)：CDF,  PDF,  PMF | Benjamin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Benjamin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Mathematic/index.html">
+  <meta name="description" content="Content  CDF - 累积分布函数 PDF - 概率密度函数 PMF - 概率质量函数 CDF 与 PDF 的关系   CDF - 累积分布函数（Cumulative distribution ） 定义：随机变量X，对任意实数 $x_0$ ，称函数 $F(x) = P(X≤x)$  或  $F_X(x)$ 为X的概率分布函数，简称分布函数，任何随机变量都有相应的分布函数。 Conte">
+<meta name="keywords" content="Mathematic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论(六)：CDF,  PDF,  PMF">
+<meta property="og:url" content="http://yoursite.com/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/index.html">
 <meta property="og:site_name" content="Benjamin&#39;s Blog">
+<meta property="og:description" content="Content  CDF - 累积分布函数 PDF - 概率密度函数 PMF - 概率质量函数 CDF 与 PDF 的关系   CDF - 累积分布函数（Cumulative distribution ） 定义：随机变量X，对任意实数 $x_0$ ，称函数 $F(x) = P(X≤x)$  或  $F_X(x)$ 为X的概率分布函数，简称分布函数，任何随机变量都有相应的分布函数。 Conte">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/drLiazo.png">
+<meta property="og:image" content="https://i.imgur.com/h9lm9Cd.png">
+<meta property="og:image" content="https://i.imgur.com/FJgO1As.png">
+<meta property="og:image" content="https://i.imgur.com/xTGTTMh.png">
+<meta property="og:image" content="https://i.imgur.com/gjTTCWj.png">
+<meta property="og:image" content="https://i.imgur.com/yTtSXO9.png">
+<meta property="og:image" content="https://i.imgur.com/drLiazo.png">
+<meta property="og:image" content="https://i.imgur.com/3GGTwVq.png">
+<meta property="og:updated_time" content="2018-07-19T09:35:10.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Benjamin&#39;s Blog">
+<meta name="twitter:title" content="概率论(六)：CDF,  PDF,  PMF">
+<meta name="twitter:description" content="Content  CDF - 累积分布函数 PDF - 概率密度函数 PMF - 概率质量函数 CDF 与 PDF 的关系   CDF - 累积分布函数（Cumulative distribution ） 定义：随机变量X，对任意实数 $x_0$ ，称函数 $F(x) = P(X≤x)$  或  $F_X(x)$ 为X的概率分布函数，简称分布函数，任何随机变量都有相应的分布函数。 Conte">
+<meta name="twitter:image" content="https://i.imgur.com/drLiazo.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -150,36 +164,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      概率论(六)：CDF,  PDF,  PMF
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<blockquote>
+<p><strong>Content</strong></p>
+<ol>
+<li>CDF - 累积分布函数</li>
+<li>PDF - 概率密度函数</li>
+<li>PMF - 概率质量函数</li>
+<li>CDF 与 PDF 的关系</li>
+</ol>
+</blockquote>
+<h3 id="CDF-累积分布函数（Cumulative-distribution-）"><a href="#CDF-累积分布函数（Cumulative-distribution-）" class="headerlink" title="CDF - 累积分布函数（Cumulative distribution ）"></a>CDF - 累积分布函数（Cumulative distribution ）</h3><blockquote>
+<p><strong>定义</strong>：随机变量X，对任意实数 $x_0$ ，称函数</p>
+<p>$F(x) = P(X≤x)$  或  $F_X(x)$</p>
+<p>为X的概率分布函数，简称分布函数，任何随机变量都有相应的分布函数。</p>
+<p><strong>Content</strong></p>
+<ol>
+<li>$F(x)$ 的性质</li>
+<li>四条常用计算公式</li>
+<li>$F(x)$的几何意义</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>$F(x)$ <strong>的性质：</strong></p>
+<ul>
+<li><p>$0\leq F(x) \leq 1$</p>
+</li>
+<li><p>$F(x)$ 单调不减</p>
+<p>​     $\because F(x_2) - F(x_1) = F(x_1<x \leq="" x_2)=""> 0$ </x></p>
+</li>
+<li><p>$F(-\infty) = 0, F(+\infty) = 1$</p>
+</li>
+<li><p>$F(x)$是右连续函数，即 $F(x+0) = F(x)$</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>四条常用计算公式</strong><ul>
+<li>$P(a＜X ≤ b) = F(b) - F(a)$</li>
+<li>$P(a \leq X &lt; b) = F(b-0) - F(a-0)$</li>
+<li>$P(a＜X &lt; b) = F(b-0) - F(b)$</li>
+<li>$P(a \leq X \leq  b) = F(b) - F(a-0)$</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>$F(x)$<strong>的几何意义</strong></p>
+<p>函数的几何意义就是随着x的增加对于事件发生概率的一个累积，当$\begin{cases} x \rightarrow - \infin, F(x) = 0 \ x\rightarrow +\infty, F(x)=1\end{cases}$</p>
+<p><img src="https://i.imgur.com/drLiazo.png" alt=""> </p>
+</li>
+</ul>
+<ul>
+<li><p><strong>对于离散型随机变量</strong></p>
+<p><img src="https://i.imgur.com/h9lm9Cd.png" alt=""> </p>
+<p><img src="https://i.imgur.com/FJgO1As.png" alt=""> </p>
+<p>一般地，离散型随机变量的分布函数为阶梯函数，$F(x)$ 在$x=x_k,(k=1,2,…)$处有跳跃，其跳跃值为$p_k = P${$X=x_k$}，因此对于某一个点的概率可求， $P(X=x_k) = F(x_k)-F(x_{k-1})$</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>对于连续型随机变量</strong></p>
+<p><img src="https://i.imgur.com/xTGTTMh.png" alt=""> </p>
+<p>连续型随机变量的CDF，一般地，对于某一个点的概率需对其CDF求导来求。</p>
+</li>
+</ul>
+<h3 id="PDF-概率密度函数（Probability-Density-Function）"><a href="#PDF-概率密度函数（Probability-Density-Function）" class="headerlink" title="PDF - 概率密度函数（Probability Density Function）"></a>PDF - 概率密度函数（Probability Density Function）</h3><blockquote>
+<p><strong>定义</strong>：对于随机变量 $X$ 的分布函数 $F(x)$，若存在非负的函数 $f(x)$ ，使对于任意实数 $x$ 有：</p>
+<p>$F(x) = \int_{-\infty}^xf(t) dt$</p>
+<p>则称 $X$ 为连续型随机变量，其中 $f(x)$ 称为 $X$ 的<strong>概率密度函数</strong>，简称<strong>概率密度</strong>，有时也写为 $f_X(x)$</p>
+<ul>
+<li>只有连续型随机变量才有PDF，PDF对应的一定是连续型随机变量</li>
+</ul>
+<p><strong>Content</strong></p>
+<ol>
+<li>$f(x)$的性质</li>
+<li>$f(x)$的几何意义</li>
+<li>“支撑” 的概念</li>
+</ol>
+</blockquote>
+<ul>
+<li>$f(x) $ <strong>的性质：</strong></li>
+</ul>
+<ol>
+<li><p>$f(x) \geq 0$</p>
+</li>
+<li><p>$\int_{-\infty}^{+\infin}f(x) dx = 1$</p>
+<p>$\because F(+\infin) = 1$</p>
+</li>
+<li><p>$\forall x_1,x_2(x_1&lt;x_2)$</p>
+<p>$P(x_1&lt;X \leq x_2) = \int_{x_1}^{x_2}f(t)dt$</p>
+<p>$\Rightarrow \forall a,P(X=a)=0$   “在任意一点上的面积为0”</p>
+</li>
+<li><p>在 $f(x)$ 连续点 $x$ ，$F’(x) = f(x)$</p>
+<p>$f(x) = lim_{\Delta x \rightarrow 0} \frac{F(x+\Delta x)-F(x)}{\Delta x}$</p>
+<p>当 $\Delta x$很小时，$P(x &lt; X \leq x+ \Delta x) \approx f(x)·\Delta x$</p>
+<p>即表示 $X$ 落在点 $x$ 附近 $(x, x+ \Delta x]$ 的概率近似等于 $f(x) \Delta x$</p>
+</li>
+</ol>
+<ul>
+<li><p>$f(x)$ <strong>的几何意义：</strong></p>
+<p>函数区域内的面积（积分），即为该区域的概率，所以有$\int_{-\infty}^{+\infin}f(x) dx = 1$</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/gjTTCWj.png" alt=""> </p>
+<ul>
+<li><p><strong>“支撑” 的概念</strong>：</p>
+<p>因为 $F(x)$ 单调不减，所以 $f(x) \geq 0$ 恒成立，对于 $f(x)&gt;0$的部分，即为 $X$ 的取值范围，称为“支撑”</p>
+</li>
+</ul>
+<p>  如何理解？我们先看 $F(x)$ ，$F(x)$ 不增的部分就对应着 $f(x)=0$的部分。</p>
+<p>  对于 $F(x)$ 不增即 $X$ 是取不到那个范围的，因为概率根本没有增加，而对于 $F(x)$ 增的部分肯定是 $X$ 能取到的地方，所以概率才会增加，即 $f(x)&gt;0$ 的部分，就是这些部分支撑着整个 $F(x)$ 呈现上升趋势，支撑着 $f(x)$ 大于 0（拱起来），所以称它为支撑。 </p>
+<h3 id="PMF-概率质量函数（Probability-Mass-Function）"><a href="#PMF-概率质量函数（Probability-Mass-Function）" class="headerlink" title="PMF - 概率质量函数（Probability Mass Function）"></a>PMF - 概率质量函数（Probability Mass Function）</h3><blockquote>
+</blockquote>
+<h3 id="CDF-与-PDF"><a href="#CDF-与-PDF" class="headerlink" title="CDF 与 PDF"></a>CDF 与 PDF</h3><blockquote>
+<p>CDF - 累积分布函数</p>
+<p>   $f(x) = P(X \leq x)$</p>
+<p>PDF - 概率密度函数</p>
+<p>   $F(x) = \int_{- \infin}^xP(X \leq x)$</p>
+<p>PDF是CDF的积分，CDF是PDF的求导</p>
+</blockquote>
+<p><img src="https://i.imgur.com/yTtSXO9.png" alt=""> </p>
+<ul>
+<li><strong>CDF</strong></li>
+</ul>
+<p><img src="https://i.imgur.com/drLiazo.png" alt=""> </p>
+<ul>
+<li><p><strong>PDF</strong></p>
+<p><img src="https://i.imgur.com/3GGTwVq.png" alt=""> </p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>thanks~~~ (⊙v⊙)<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/Alipay_QRcode.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wechat_QRcode.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">概率论(三)：联合分布、条件分布、边缘分布</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,364 +363,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/#Content/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          概率论(七)：X 分布与 Y(X) 分布的关系
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">概率论(八)：几种重要的一维概率分布及其特点</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/#Content/">Mathematic_Note</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/">概率论(十一)：中心极限定理与大数定理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/">概率论(二)：独立事件与互斥事件的区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/">概率论(十)：期望、方差、协方差、相关系数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/">概率论(四)：全概率公式与贝叶斯公式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/">概率论(一)：离散型随机变量与连续型随机变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/">概率论(七)：X 分布与 Y(X) 分布的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/">概率论(六)：CDF,  PDF,  PMF</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/">概率论(八)：几种重要的一维概率分布及其特点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/Mathematic/page/2/">2</a><a class="extend next" rel="next" href="/tags/Mathematic/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -572,9 +494,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

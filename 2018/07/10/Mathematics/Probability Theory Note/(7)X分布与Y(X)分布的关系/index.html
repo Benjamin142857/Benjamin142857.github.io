@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Mathematic | Benjamin&#39;s Blog</title>
+  <title>概率论(七)：X 分布与 Y(X) 分布的关系 | Benjamin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Benjamin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Mathematic/index.html">
+  <meta name="description" content="很多时候我们已知随机变量 $X$ 的分布，而相应的如果 $X$ 经过某函数关系 $g(X)$ 后得到的 $Y$ ，其实它的分布我们也可求出来，而且这个分布肯定是和 $X$ 的分布与函数关系 $g$ 共同决定的     那如何根据 $X$ 的分布与 $Y=g(x)$ 的函数关系 $g$ 去求 $Y$ 的分布呢？   对于离散型随机变量 $X$ ，将相应 $X$ 取值经过 $g$ 变换后得到 $">
+<meta name="keywords" content="Mathematic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论(七)：X 分布与 Y(X) 分布的关系">
+<meta property="og:url" content="http://yoursite.com/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/index.html">
 <meta property="og:site_name" content="Benjamin&#39;s Blog">
+<meta property="og:description" content="很多时候我们已知随机变量 $X$ 的分布，而相应的如果 $X$ 经过某函数关系 $g(X)$ 后得到的 $Y$ ，其实它的分布我们也可求出来，而且这个分布肯定是和 $X$ 的分布与函数关系 $g$ 共同决定的     那如何根据 $X$ 的分布与 $Y=g(x)$ 的函数关系 $g$ 去求 $Y$ 的分布呢？   对于离散型随机变量 $X$ ，将相应 $X$ 取值经过 $g$ 变换后得到 $">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/3dVgNro.png">
+<meta property="og:image" content="https://i.imgur.com/H6HbHjv.png">
+<meta property="og:image" content="https://i.imgur.com/95X8kkv.png">
+<meta property="og:updated_time" content="2018-07-19T09:35:53.153Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Benjamin&#39;s Blog">
+<meta name="twitter:title" content="概率论(七)：X 分布与 Y(X) 分布的关系">
+<meta name="twitter:description" content="很多时候我们已知随机变量 $X$ 的分布，而相应的如果 $X$ 经过某函数关系 $g(X)$ 后得到的 $Y$ ，其实它的分布我们也可求出来，而且这个分布肯定是和 $X$ 的分布与函数关系 $g$ 共同决定的     那如何根据 $X$ 的分布与 $Y=g(x)$ 的函数关系 $g$ 去求 $Y$ 的分布呢？   对于离散型随机变量 $X$ ，将相应 $X$ 取值经过 $g$ 变换后得到 $">
+<meta name="twitter:image" content="https://i.imgur.com/3dVgNro.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -150,36 +159,161 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      概率论(七)：X 分布与 Y(X) 分布的关系
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<blockquote>
+<p>很多时候我们已知随机变量 $X$ 的分布，而相应的如果 $X$ 经过某函数关系 $g(X)$ 后得到的 $Y$ ，其实它的分布我们也可求出来，而且这个分布肯定是和 $X$ 的分布与函数关系 $g$ 共同决定的</p>
+</blockquote>
+<p><img src="https://i.imgur.com/3dVgNro.png" alt=""> </p>
+<ul>
+<li><strong>那如何根据 $X$ 的分布与 $Y=g(x)$ 的函数关系 $g$ 去求 $Y$ 的分布呢？</strong></li>
+</ul>
+<ul>
+<li><p>对于离散型随机变量 $X$ ，将相应 $X$ 取值经过 $g$ 变换后得到 $Y$ ，$Y$ 相同的，概率累加即可。</p>
+<p><strong>举个栗子</strong>:chestnut:</p>
+<blockquote>
+<p>设随机变量 $X$ 的概率分布律为如图，$Y=X^2$，求 $Y$ 的概率分布律.</p>
+</blockquote>
+<p><img src="https://i.imgur.com/H6HbHjv.png" alt=""> </p>
+<p><img src="https://i.imgur.com/95X8kkv.png" alt=""> </p>
+</li>
+<li><p>对于连续型随机变量</p>
+<ul>
+<li><p>$X-CDF$    算    $Y  - CDF$</p>
+<p><strong>函数代入法</strong>：设随机变量 $X$ ，$Y = g(X)$，在 $X$ 非常数的区间内，将 $g(X)\leq y$ 化简为 $X$ 的一个取值范围 $D$，然后将 $P(D)$ 的计算转化为 $F_X(x)$ 的纯含 $y$ 代入式计算， 算出来的式子即为 $F_Y(y)$</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>  **举个栗子**:chestnut:
+
+  &gt; 设随机变量 $X$ 的累积分布函数为 $F(x) = \begin{cases}1，4&lt;x;\\\frac{x^2}{16}，0&lt;x\leq4;\\0，x\leq 0\end{cases}$
+  &gt;
+  &gt; 求 $Y = X^2$ 的CDF
+
+  在 $0 &lt; x \leq 4$ 时
+
+  $F_Y(y) = P(Y \leq y) = P(X^2 \leq y) = P(\sqrt{-y} \leq X \leq \sqrt{y}) = P(X \leq \sqrt{y}) = F_X(\sqrt{y}) = \frac{(\sqrt{y})^2}{16} = \frac{y}{16}$
+
+  其余区间对应相同，因此求得：
+
+  $F(y) = \begin{cases}1，16&lt;y;\\\frac{y}{16}，0&lt;y\leq4;\\0，y\leq 0\end{cases}$
+
+
+
+
+
+* $X-PDF$    算    $Y-PDF$
+
+  **公式法**：设随机变量 $X$~$f_X(x)$，$-\infty&lt;x&lt;+\infty$， $Y=g(X)$ , 若 $g(X)$ 单调，设其反函数为 $h(y)$ ,则 $Y$ 的 PDF 为：
+
+
+
+  $f_Y(y) = \begin{cases}f_x(h(y))·|h&apos;(y)|, \alpha&lt;y&lt;\beta\\ 0 ,otherwise\end{cases}$
+
+  * $\alpha，\beta$  分别取 $g(-\infty)，g(+\infty)$ 中的最小值和最大值
+
+
+
+  **举个栗子**:chestnut:
+
+  &gt; 设随机变量 $X$ 的累积分布函数为 $f(x) = \frac{e^{-|x|}}{2}$
+  &gt;
+  &gt; 求 $Y = e^X$ 的PDF
+
+  套公式即可得
+
+  $f(y) = \begin{cases}\frac{e^{-|lny|}}{2}·|lny|，y&gt;0\\0，otherwise \end{cases}$
+
+
+
+
+
+* **特殊：当$X$~$B(\mu, \sigma^2)$**时，若$Y(X) = aX + b$ ，则
+
+  $Y$~$N(\alpha\mu+b, a^2\sigma^2)$
+
+
+
+  **举个栗子**:chestnut:
+
+  &gt; $X$~$N(1, 3)$
+  &gt;
+  &gt; $Y(x) = 3-2X$，求 $Y$ 的分布
+
+  $\because a\mu + b = -2*1+3 = 1$
+
+  ​    $\alpha^2\sigma^2 = 4*3 = 12$
+
+  $\therefore Y$~$N(1, 12)$
+
+
+
+
+
+* 要求 $Y-PDF$，也可以先根据 $X - CDF$ 算出 $Y - CDF$ 之后在微分。
+
+  要求 $Y - CDF$，也可以先根据 $X - PDF $ 算出 $Y-PDF$ 之后再积分。
+
+  总之要灵活应用~~
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>thanks~~~ (⊙v⊙)<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/Alipay_QRcode.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wechat_QRcode.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">概率论(三)：联合分布、条件分布、边缘分布</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,364 +325,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/#Content/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          概率论(一)：离散型随机变量与连续型随机变量
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">概率论(六)：CDF,  PDF,  PMF</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/#Content/">Mathematic_Note</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/">概率论(十一)：中心极限定理与大数定理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/">概率论(二)：独立事件与互斥事件的区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/">概率论(十)：期望、方差、协方差、相关系数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/">概率论(四)：全概率公式与贝叶斯公式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/">概率论(一)：离散型随机变量与连续型随机变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/">概率论(七)：X 分布与 Y(X) 分布的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(6)CDF,  PDF,  PMF/">概率论(六)：CDF,  PDF,  PMF</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(8)几种重要的一维概率分布及其特点/">概率论(八)：几种重要的一维概率分布及其特点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/Mathematic/page/2/">2</a><a class="extend next" rel="next" href="/tags/Mathematic/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -572,9 +456,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
