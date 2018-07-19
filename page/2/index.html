@@ -152,675 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/">概率论(四)：全概率公式与贝叶斯公式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-<h3 id="全概率公式-Total-probability-formula"><a href="#全概率公式-Total-probability-formula" class="headerlink" title="全概率公式(Total probability formula)"></a>全概率公式(Total probability formula)</h3><p>​    设$B_1,B_2,…B_n$为样本空间$S$ 的一个划分, 全概率公式为：</p>
-<p>​         $P(A) = \sum_{j=1}^n P(B_j)·P(A|B_j)$</p>
-<p><img src="https://i.imgur.com/KF2smKz.png" alt=""> </p>
-<p><strong>举个栗子</strong></p>
-<blockquote>
-<p>设有m个球，n个红球(n&gt;2)，m-n个白球，不放回地抽2个球，求第二次抽到红球的概率, 设第1次抽到红球为事件$B$,  第2次抽到红球为事件$A$, 事件$A$的全概率公式如下:   :   </p>
-</blockquote>
-<p>​      </p>
-<p>​     $P(A) = P(B)·P(A|B) + P(\overline{B})·P(A|\overline{B}))$</p>
-<p>​     $(P(B) + P(\overline{B}) = 1)$  </p>
-<blockquote>
-<p>设有m个球，n种颜色，其中有k个红球(k&gt;2)，不放回地抽2个球，求第二次抽到红球的概率, 设第1次抽到颜色 $j$ 的球为事件$B_j$,  第2次抽到红球为事件$A$, 事件$A$的全概率公式如下:   </p>
-</blockquote>
-<p>​    </p>
-<p>​        $P(A) = \sum_{j=1}^n P(B_j)·P(A|B_j)$</p>
-<p>​       $ (\sum_{j=1}^n P(B_j) = 1)$</p>
-<p><strong>综上可得</strong></p>
-<p>全概率公式就是设$B_1,B_2,…B_n$为样本空间$S$ 的一个划分 ，而求$A$事件的概率可在各个$B$事件发生的前提下发生$A$的概率的总和，亦可以路径图理解，如下：</p>
-<p>​     <img src="https://i.imgur.com/zWxWJlh.png" alt=""> </p>
-<h3 id="贝叶斯公式-Bayes-formula"><a href="#贝叶斯公式-Bayes-formula" class="headerlink" title="贝叶斯公式(Bayes formula)"></a>贝叶斯公式(Bayes formula)</h3><ul>
-<li>简式贝叶斯公式：</li>
-</ul>
-<p>​                       $P(B|A) = \frac{P(B)·P(A|B)}{P(A)}$</p>
-<ul>
-<li><p>若$B_1,B_2,…B_n$为样本空间$S$ 的一个划分，可将$P(A)$展开为全概率公式：</p>
-<pre><code>$P(B_i|A) = \frac{P(B_i)·P(A|B_i)}{\sum_{j=1}^n P(B_j)·P(A|B_j)}$
-</code></pre></li>
-</ul>
-<p><strong>先验概率(Prior probability)与后验概率(posterior probability)与似然值(likelihood)</strong></p>
-<p>​     </p>
-<p>​     $P(B|A) = \frac{P(B)·P(A|B)}{P(A)}$    →   $posterior = \frac{prior · likelihood}{evidence}$</p>
-<p>​    </p>
-<p>​    公式中的$P(B|A)$就是后验概率，$P(B)$就是先验概率，$P(A|B)$就是似然值。</p>
-<p>​    由公式可知，“后验$P(B|A)$” 受 “先验$P(B)$” 和 “似然$P(A|B)$” 影响，但并不取决于先验概率或似然值。比如$P(B)$很大，只要$P(A|B)$足够小，$P(B|A)$也可以很小。同理$P(A|B)$很小，若$P(B)$足够大，$P(B|A)$也可以很大。</p>
-<p><strong>举个栗子</strong></p>
-<blockquote>
-<p>一年365天，有36天下雨，把下雨频率当作每天下雨的概率，我们近似为10%，天气预报人员会对每天进行天气预测，假如一年内下雨的时候，天气预报人员都预报了下雨，而有一年内64天没下雨的时候天气预报人员也预报了下雨。那现在天气预报人员预测明天会下雨，那明天真的会下雨的概率是多少？</p>
-</blockquote>
-<p>​        $P(下雨 | 预测明天下雨) = \frac{P(下雨) · P(预测明天下雨 | 下雨)}{P(预测明天下雨)} $</p>
-<p>​                         $= \frac{0.1 · 1}{100/365}$</p>
-<p>​                         $=0.365$</p>
-<p>​    由此可得，即使下雨的时候天气预报人员都预报准了，即$P(预测明天下雨 | 下雨)=1$, 好像准确率好高的样子，人们也会根据天气预报人员下雨的天数都预测准了的现象，惯性地感觉天气预报人员预报明天下雨就肯定下雨了，这就是先验影响了人们的惯性感觉，</p>
-<p>​    但其实根据贝叶斯公式，若先验概率太小，哪怕天气人员预测明天会下雨，明天真的会下雨的概率也就只有36.5%。</p>
-<blockquote>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(4)全概率公式与贝叶斯公式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Machine Learning Note/2. Naive Bayes/Naive Bayes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine Learning Note/2. Naive Bayes/Naive Bayes/">Naive Bayes</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Machine Learning Note/2. Naive Bayes/Naive Bayes/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-<h1 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/2. Naive Bayes/Naive Bayes/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/">概率论(十)：期望、方差、协方差、相关系数</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mathematics/Probability Theory Note/(11)中心极限定理与大数定理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/">概率论(十一)：中心极限定理与大数定理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/">概率论(二)：独立事件与互斥事件的区别</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">概率论(三)：联合分布、条件分布、边缘分布</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mathematics/#Content" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/#Content/">Mathematic_Note</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Mathematics/#Content/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
-<p>线性代数：learn form <a href="https://www.icourse163.org/course/UESTC-1001615001#/info" target="_blank" rel="noopener">MOOC-线性代数与空间解析几何CAP</a>  and <a href="http://open.163.com/special/opencourse/daishu.html" target="_blank" rel="noopener">麻省理工公开课：线性代数</a></p>
-<p>概率论与数理统计：learn form <a href="https://www.icourse163.org/course/ZJU-1001615010#/info" target="_blank" rel="noopener">MOOC-概率论与数理统计CAP</a></p>
-<h3 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h3><h6 id="Linear-Algebra"><a href="#Linear-Algebra" class="headerlink" title="Linear Algebra"></a>Linear Algebra</h6><ul>
-<li><a href="https://github.com/Benjamin142857/ML_Linear-Algebra/blob/master/%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5.md" target="_blank" rel="noopener">常见矩阵</a></li>
-<li><a href="https://github.com/Benjamin142857/ML_Linear-Algebra/blob/master/%E7%9F%A9%E9%98%B5%E7%9A%84%E7%BA%BF%E6%80%A7%E8%BF%90%E7%AE%97%E3%80%81%E4%B9%98%E6%B3%95%E3%80%81%E8%BD%AC%E7%BD%AE%E3%80%81%E5%AF%B9%E7%A7%B0%E3%80%81%E9%80%86.md" target="_blank" rel="noopener">矩阵的线性运算、乘法、转置、对称、逆</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">线性方程组求解的初等变换</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Ax=0: 主变量，特解</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Ax=b: 可解性和解的结构</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">矩阵求逆的初等变换法</a></li>
-</ul>
-<h6 id="Probability-Theory"><a href="#Probability-Theory" class="headerlink" title="Probability Theory"></a>Probability Theory</h6><ul>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">离散型随机变量与连续型随机变量</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">独立事件与互斥事件的区别</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">联合分布、条件分布、边缘分布</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">全概率公式与贝叶斯公式</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">MLE 与 MAP</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">CDF、PDF、PMF</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">X分布与Y(X)分布的关系</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">几种重要的一维概率分布及其特点</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">几种重要的二维概率分布及其特点</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">期望、方差、协方差、相关系数</a></li>
-<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">中心极限定理与大数定理</a></li>
-</ul>
-<p><strong>Advanced Mathematics</strong></p>
-<ul>
-<li><p><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">一元函数微积分</a></p>
-</li>
-<li><p><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">多元函数微积分</a></p>
-</li>
-<li><p><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">环流量，通量，散度，旋度，梯度</a></p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/#Content/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mathematics/Probability Theory Note/(5)MLE 与 MAP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(5)MLE 与 MAP/">概率论(五)：MLE 与 MAP</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Mathematics/Probability Theory Note/(5)MLE 与 MAP/" class="archive-article-date">
-  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(5)MLE 与 MAP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -961,6 +292,186 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(7)X分布与Y(X)分布的关系/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mathematics/#Content" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Mathematics/#Content/">Mathematic_Note</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/#Content/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h3><p>Author :  Benjamin142857</p>
+<p>线性代数：learn form <a href="https://www.icourse163.org/course/UESTC-1001615001#/info" target="_blank" rel="noopener">MOOC-线性代数与空间解析几何CAP</a>  and <a href="http://open.163.com/special/opencourse/daishu.html" target="_blank" rel="noopener">麻省理工公开课：线性代数</a></p>
+<p>概率论与数理统计：learn form <a href="https://www.icourse163.org/course/ZJU-1001615010#/info" target="_blank" rel="noopener">MOOC-概率论与数理统计CAP</a></p>
+<h3 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h3><h6 id="Linear-Algebra"><a href="#Linear-Algebra" class="headerlink" title="Linear Algebra"></a>Linear Algebra</h6><ul>
+<li><a href="https://github.com/Benjamin142857/ML_Linear-Algebra/blob/master/%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5.md" target="_blank" rel="noopener">常见矩阵</a></li>
+<li><a href="https://github.com/Benjamin142857/ML_Linear-Algebra/blob/master/%E7%9F%A9%E9%98%B5%E7%9A%84%E7%BA%BF%E6%80%A7%E8%BF%90%E7%AE%97%E3%80%81%E4%B9%98%E6%B3%95%E3%80%81%E8%BD%AC%E7%BD%AE%E3%80%81%E5%AF%B9%E7%A7%B0%E3%80%81%E9%80%86.md" target="_blank" rel="noopener">矩阵的线性运算、乘法、转置、对称、逆</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">线性方程组求解的初等变换</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Ax=0: 主变量，特解</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">Ax=b: 可解性和解的结构</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">矩阵求逆的初等变换法</a></li>
+</ul>
+<h6 id="Probability-Theory"><a href="#Probability-Theory" class="headerlink" title="Probability Theory"></a>Probability Theory</h6><ul>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">离散型随机变量与连续型随机变量</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">独立事件与互斥事件的区别</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">联合分布、条件分布、边缘分布</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">全概率公式与贝叶斯公式</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">MLE 与 MAP</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">CDF、PDF、PMF</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">X分布与Y(X)分布的关系</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">几种重要的一维概率分布及其特点</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">几种重要的二维概率分布及其特点</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">期望、方差、协方差、相关系数</a></li>
+<li><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">中心极限定理与大数定理</a></li>
+</ul>
+<p><strong>Advanced Mathematics</strong></p>
+<ul>
+<li><p><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">一元函数微积分</a></p>
+</li>
+<li><p><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">多元函数微积分</a></p>
+</li>
+<li><p><a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">环流量，通量，散度，旋度，梯度</a></p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Mathematics/#Content/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mathematics/Probability Theory Note/(9)几种重要的二维概率分布及其特点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(9)几种重要的二维概率分布及其特点/">概率论(九)：几种重要的二维概率分布及其特点</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(9)几种重要的二维概率分布及其特点/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(9)几种重要的二维概率分布及其特点/">展开全文 >></a>
         </p>
       
 
@@ -1192,6 +703,474 @@
 
 
   
+    <article id="post-Machine Learning Note/2. Naive Bayes/Naive Bayes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Machine Learning Note/2. Naive Bayes/Naive Bayes/">Naive Bayes</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine Learning Note/2. Naive Bayes/Naive Bayes/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a> 
+<h1 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/2. Naive Bayes/Naive Bayes/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/">概率论(十)：期望、方差、协方差、相关系数</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(10)期望、方差、协方差、相关系数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mathematics/Probability Theory Note/(11)中心极限定理与大数定理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/">概率论(十一)：中心极限定理与大数定理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(11)中心极限定理与大数定理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/">概率论(一)：离散型随机变量与连续型随机变量</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<h3 id="离散型随机变量"><a href="#离散型随机变量" class="headerlink" title="离散型随机变量"></a>离散型随机变量</h3><blockquote>
+<p>若随机变量X的取值为有限个或可数个，则称X为离散型随机变量.</p>
+<p>例如，抛四次硬币的概率，设正面朝上为X，那一共就有(X=0)，(X=1)，(X=2)，(X=3)，(X=4)五种情况，很明显是有限个，所以这个X就是离散型随机变量</p>
+</blockquote>
+<p><strong>离散型随机变量的概率分布律</strong></p>
+<ul>
+<li><p>内容</p>
+<ol>
+<li>随机变量的所有可能取值</li>
+<li>取每个可能取值相应的概率</li>
+</ol>
+</li>
+<li><p>性质</p>
+<p>$P_k≥0， \sum_{k=1}^∞P_k = 1$</p>
+</li>
+</ul>
+<h3 id="连续型随机变量"><a href="#连续型随机变量" class="headerlink" title="连续型随机变量"></a>连续型随机变量</h3><blockquote>
+<p>若随机变量X的取值为不可数个，则称X为连续型随机变量.</p>
+<p>例如，（0, 1）之间取到的数的概率，一天之内降雨量的概率，完成一个项目所耗时间的概率等等</p>
+</blockquote>
+<p><strong>连续型随机变量的概率分布律</strong></p>
+<p>对于连续型随机变量，我们更多地会研究它的<a href="https://benjamin142857.github.io/" target="_blank" rel="noopener">PDF - (概率密度函数)</a>，它的PDF的区域积分（面积）就表示落在该区域内的概率，所以有</p>
+<p>$\int_{-\infty}^{+\infty}f(x)dx=1$</p>
+<p>对整个区域积分，即其面积应该为1.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(1)离散型随机变量与连续型随机变量/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/">概率论(二)：独立事件与互斥事件的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(2)独立事件与互斥事件的区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">概率论(三)：联合分布、条件分布、边缘分布</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/" class="archive-article-date">
+  	<time datetime="2018-07-10T03:32:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mathematic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Mathematics/Probability Theory Note/(3)联合分布、条件分布、边缘分布/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1310,11 +1289,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mathematic</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mathematic</a>
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
               </li>
              
               <li class="article-tag-list-item">

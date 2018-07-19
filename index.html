@@ -250,141 +250,6 @@
 
 
   
-    <article id="post-Machine Learning Note/Information Theory " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine Learning Note/Information Theory /">Information Theory Note</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Machine Learning Note/Information Theory /" class="archive-article-date">
-  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-<h1 id="Information-Theory-Note"><a href="#Information-Theory-Note" class="headerlink" title="Information Theory Note"></a>Information Theory Note</h1><h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/DbNqRH5.png" alt=""> </p>
-<blockquote>
-<p>C.Shannon 在早期为研究信道通信提出了信息论，现代世界的发展很大贡献都源自信息论。</p>
-<p><strong>Content</strong></p>
-<ol>
-<li>Entropy</li>
-<li>Information Gain</li>
-<li>Information Gain Ratio</li>
-</ol>
-</blockquote>
-<h3 id="Entropy-熵"><a href="#Entropy-熵" class="headerlink" title="Entropy - 熵"></a>Entropy - 熵</h3><hr>
-<p><img src="https://i.imgur.com/qQ90PzN.jpg" alt=""> </p>
-<blockquote>
-<p>1948 年，香农提出了信息熵的概念，才解决了<strong>对信息的量化度量</strong>问题。</p>
-<p>一条信息的信息量大小和它的不确定性有直接的关系。比如说，我们<strong>要搞清楚一件非常非常不确定的事</strong>，或是我们一无所知的事情，就<strong>需要了解大量的信息</strong>。相反，如果我们<strong>对某件事已经有了较多的了解</strong>，我们<strong>不需要太多的信息</strong>就能把它搞清楚。所以，从这个角度，我们可以认为，<strong>信息量的度量就等于不确定性的多少</strong>。</p>
-</blockquote>
-<p>香农熵的定义是一种比较<strong>Heuristic</strong>的思想。</p>
-<p>我们最开始是先来研究<strong>怎么区分信息间信息量大小</strong>。</p>
-<p>假如我们用<strong>H来代表信息量的大小</strong>，那<strong>信息量的大小H</strong>和什么有关？举了例子：我们联想这样一个问题：</p>
-<blockquote>
-<ol>
-<li>一个同学接到了一个电话，是他妈打过来的，和他说天气转冷，记得穿秋裤。（然后问这个同学，电话包含的信息量是多少？显然现在比较难准确回答）</li>
-<li>然后这个同学又接到一个电话，是他导师打过来的，和他说他的论文被一所国外的知名大学选中了，现在获得了出国留学的名额（很明显，现在这个电话和第一个电话相比，信息量就感觉大很多）</li>
-</ol>
-</blockquote>
-<p><img src="https://i.imgur.com/EV7ZPDI.png" alt=""> </p>
-<p>由上述可知，第一通电话的概率很大，因为妈妈会经常打来电话给予关心，是比较规律性的行为，会让人觉得很平常，信息量较少。而第二通电话的概率一般是很小的，总会让人很意外，觉得突如其来的信息量很大，需要消化一下。</p>
-<p>所以<strong>信息量的大小H</strong>就此和<strong>概率P</strong>有了联系，那我们就是要找一个函数来<strong>构建 H 与 P 的关系 H(P)</strong>，它们需满足以下规则：</p>
-<blockquote>
-<ol>
-<li>概率越大的事件所带来的信息量越小，<strong>所以H与P是成反比关系</strong>。</li>
-<li>信息之间可以说是独立的，所以满足可加性。比如包含两个信息信息量的$H(P_1, P_2)$ 要等价于两个包含一个信息的信息量的叠加。 即$H(P_1, P_2) = H(P_1) + H(P_2)$</li>
-<li>信息量大小是非负的，$H(P) ≥ 0$</li>
-</ol>
-</blockquote>
-<ul>
-<li><p>综上规则，香农就把H(p)定义为以下关系：</p>
-<p>  ​         $H(P) = -log_2(P)$    </p>
-</li>
-</ul>
-<p>​      <img src="https://i.imgur.com/dBAbTNn.png" alt="">  </p>
-<p>这个关系同时能满足：</p>
-<blockquote>
-<ol>
-<li>因为加了负号，H与P成反比关系</li>
-<li>符合叠加，对于对数函数，$H(P_1P_2) = H(P_1) + H(P_2)$</li>
-<li>$P∈[0, 1], H ∈ [0, +∞]$</li>
-</ol>
-</blockquote>
-<p>那现在定义了 <strong>信息量大小H</strong> 与 <strong>信息概率P</strong> 之间的关系$H = -log_2(P)$后，我们要研究一个<strong>含有多个信息</strong> 的 <strong>信息系统</strong> 的 <strong>信息混乱程度</strong>，那我们只需就求这个信息系统的期望值即可，即<strong>HP</strong></p>
-<p>​             $E(H) = P_1H_1 + P_2H_2 + … +P_nH_n = \sum{(PH)} = \sum{(P · -log_2P)}$</p>
-<p>这就是著名的香农熵Entropy:</p>
-<p>​             $Entropy = -\sum_{i=1}^n[P(x_i)·log_2P(x_i)]$</p>
-<blockquote>
-<p>附：<a href="E:\#Else_document\Items\#Topview\Machine Learning Note\( -" target="_blank" rel="noopener">Decision Tree 番外篇（一）- Entropy 与 IG 在DT中的意义</a>Decision Tree 番外篇(一).md)                                          </p>
-</blockquote>
-<h3 id="Information-Gain-信息增益"><a href="#Information-Gain-信息增益" class="headerlink" title="Information Gain - 信息增益"></a>Information Gain - 信息增益</h3><hr>
-<p><img src="https://i.imgur.com/u2JeiR3.jpg" alt=""> </p>
-<blockquote>
-<p>在概率论和信息论中，信息增益是非对称的，用以度量两种概率分布P和Q的差异。信息增益描述了当使用Q进行编码时，再使用P进行编码的差异。通常P代表样本或观察值的分布，也有可能是精确计算的理论分布。Q代表一种理论，模型，描述或者对P的近似。 </p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/Information Theory /">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Machine Learning Note/1. Regression Analysis/Regression Analysis Model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -405,7 +270,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!--*more*--> 
+        <a id="more"></a> 
 <h1 id="Regression-Analysis-Model（Regression-Analysis）"><a href="#Regression-Analysis-Model（Regression-Analysis）" class="headerlink" title="Regression Analysis Model（Regression Analysis）"></a>Regression Analysis Model（Regression Analysis）</h1><h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/k2cQCef.png" alt=""></p>
 <blockquote>
 <p><strong>回归分析（Regression Analysis）</strong>：一种统计学上分析数据的方法，目的在于了解两个或多个变数间是否相关、相关方向与强度，并建立数学模型以便观察特定变数来预测研究者感兴趣的变数。</p>
@@ -586,19 +451,19 @@
 
 
   
-    <article id="post-Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Machine Learning Note/Information Theory " class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学/">Machine Learning 番外篇（一）- Philosophy of Machine Learning</a>
+      <a class="article-title" href="/2018/07/10/Machine Learning Note/Information Theory /">Information Theory Note</a>
     </h1>
   
 
         
-        <a href="/2018/07/10/Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学/" class="archive-article-date">
+        <a href="/2018/07/10/Machine Learning Note/Information Theory /" class="archive-article-date">
   	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
 </a>
         
@@ -607,17 +472,67 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!--*more*--> 
-<h1 id="Machine-Learning-番外篇（一）-Philosophy-of-Machine-Learning"><a href="#Machine-Learning-番外篇（一）-Philosophy-of-Machine-Learning" class="headerlink" title="Machine Learning 番外篇（一）- Philosophy of Machine Learning"></a>Machine Learning 番外篇（一）- Philosophy of Machine Learning</h1><h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/RJ39ueV.jpg" alt=""> </p>
+<h1 id="Information-Theory-Note"><a href="#Information-Theory-Note" class="headerlink" title="Information Theory Note"></a>Information Theory Note</h1><h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/DbNqRH5.png" alt=""> </p>
 <blockquote>
+<p>C.Shannon 在早期为研究信道通信提出了信息论，现代世界的发展很大贡献都源自信息论。</p>
 <p><strong>Content</strong></p>
 <ol>
-<li>Mystery of I/O</li>
-<li>Occam’s Razor</li>
-<li>Geometric of Dimensionality</li>
-<li>High-dimensional Manifold</li>
+<li>Entropy</li>
+<li>Information Gain</li>
+<li>Information Gain Ratio</li>
 </ol>
 </blockquote>
-<p>待补</p>
+<h3 id="Entropy-熵"><a href="#Entropy-熵" class="headerlink" title="Entropy - 熵"></a>Entropy - 熵</h3><hr>
+<p><img src="https://i.imgur.com/qQ90PzN.jpg" alt=""> </p>
+<blockquote>
+<p>1948 年，香农提出了信息熵的概念，才解决了<strong>对信息的量化度量</strong>问题。</p>
+<p>一条信息的信息量大小和它的不确定性有直接的关系。比如说，我们<strong>要搞清楚一件非常非常不确定的事</strong>，或是我们一无所知的事情，就<strong>需要了解大量的信息</strong>。相反，如果我们<strong>对某件事已经有了较多的了解</strong>，我们<strong>不需要太多的信息</strong>就能把它搞清楚。所以，从这个角度，我们可以认为，<strong>信息量的度量就等于不确定性的多少</strong>。</p>
+</blockquote>
+<p>香农熵的定义是一种比较<strong>Heuristic</strong>的思想。</p>
+<p>我们最开始是先来研究<strong>怎么区分信息间信息量大小</strong>。</p>
+<p>假如我们用<strong>H来代表信息量的大小</strong>，那<strong>信息量的大小H</strong>和什么有关？举了例子：我们联想这样一个问题：</p>
+<blockquote>
+<ol>
+<li>一个同学接到了一个电话，是他妈打过来的，和他说天气转冷，记得穿秋裤。（然后问这个同学，电话包含的信息量是多少？显然现在比较难准确回答）</li>
+<li>然后这个同学又接到一个电话，是他导师打过来的，和他说他的论文被一所国外的知名大学选中了，现在获得了出国留学的名额（很明显，现在这个电话和第一个电话相比，信息量就感觉大很多）</li>
+</ol>
+</blockquote>
+<p><img src="https://i.imgur.com/EV7ZPDI.png" alt=""> </p>
+<p>由上述可知，第一通电话的概率很大，因为妈妈会经常打来电话给予关心，是比较规律性的行为，会让人觉得很平常，信息量较少。而第二通电话的概率一般是很小的，总会让人很意外，觉得突如其来的信息量很大，需要消化一下。</p>
+<p>所以<strong>信息量的大小H</strong>就此和<strong>概率P</strong>有了联系，那我们就是要找一个函数来<strong>构建 H 与 P 的关系 H(P)</strong>，它们需满足以下规则：</p>
+<blockquote>
+<ol>
+<li>概率越大的事件所带来的信息量越小，<strong>所以H与P是成反比关系</strong>。</li>
+<li>信息之间可以说是独立的，所以满足可加性。比如包含两个信息信息量的$H(P_1, P_2)$ 要等价于两个包含一个信息的信息量的叠加。 即$H(P_1, P_2) = H(P_1) + H(P_2)$</li>
+<li>信息量大小是非负的，$H(P) ≥ 0$</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>综上规则，香农就把H(p)定义为以下关系：</p>
+<p>  ​         $H(P) = -log_2(P)$    </p>
+</li>
+</ul>
+<p>​      <img src="https://i.imgur.com/dBAbTNn.png" alt="">  </p>
+<p>这个关系同时能满足：</p>
+<blockquote>
+<ol>
+<li>因为加了负号，H与P成反比关系</li>
+<li>符合叠加，对于对数函数，$H(P_1P_2) = H(P_1) + H(P_2)$</li>
+<li>$P∈[0, 1], H ∈ [0, +∞]$</li>
+</ol>
+</blockquote>
+<p>那现在定义了 <strong>信息量大小H</strong> 与 <strong>信息概率P</strong> 之间的关系$H = -log_2(P)$后，我们要研究一个<strong>含有多个信息</strong> 的 <strong>信息系统</strong> 的 <strong>信息混乱程度</strong>，那我们只需就求这个信息系统的期望值即可，即<strong>HP</strong></p>
+<p>​             $E(H) = P_1H_1 + P_2H_2 + … +P_nH_n = \sum{(PH)} = \sum{(P · -log_2P)}$</p>
+<p>这就是著名的香农熵Entropy:</p>
+<p>​             $Entropy = -\sum_{i=1}^n[P(x_i)·log_2P(x_i)]$</p>
+<blockquote>
+<p>附：<a href="E:\#Else_document\Items\#Topview\Machine Learning Note\( -" target="_blank" rel="noopener">Decision Tree 番外篇（一）- Entropy 与 IG 在DT中的意义</a>Decision Tree 番外篇(一).md)                                          </p>
+</blockquote>
+<h3 id="Information-Gain-信息增益"><a href="#Information-Gain-信息增益" class="headerlink" title="Information Gain - 信息增益"></a>Information Gain - 信息增益</h3><hr>
+<p><img src="https://i.imgur.com/u2JeiR3.jpg" alt=""> </p>
+<blockquote>
+<p>在概率论和信息论中，信息增益是非对称的，用以度量两种概率分布P和Q的差异。信息增益描述了当使用Q进行编码时，再使用P进行编码的差异。通常P代表样本或观察值的分布，也有可能是精确计算的理论分布。Q代表一种理论，模型，描述或者对P的近似。 </p>
+</blockquote>
 
       
 
@@ -641,7 +556,81 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/Information Theory /">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Machine Learning Note/4. Logistic Regression/Logistic Regression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Machine Learning Note/4. Logistic Regression/Logistic Regression/">Logistic Regression</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine Learning Note/4. Logistic Regression/Logistic Regression/" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/4. Logistic Regression/Logistic Regression/">展开全文 >></a>
         </p>
       
 
@@ -883,302 +872,6 @@
 
 
   
-    <article id="post-Machine Learning Note/4. Logistic Regression/Logistic Regression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine Learning Note/4. Logistic Regression/Logistic Regression/">Logistic Regression</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Machine Learning Note/4. Logistic Regression/Logistic Regression/" class="archive-article-date">
-  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-<h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/4. Logistic Regression/Logistic Regression/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝/">DT番外篇(二) - 连续型数值分箱与剪枝</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝/" class="archive-article-date">
-  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-<h1 id="DT番外篇-二-连续型数值分箱与剪枝"><a href="#DT番外篇-二-连续型数值分箱与剪枝" class="headerlink" title="DT番外篇(二) - 连续型数值分箱与剪枝"></a>DT番外篇(二) - 连续型数值分箱与剪枝</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Machine Learning Note/5. SVM/SVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine Learning Note/5. SVM/SVM/">SVM</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Machine Learning Note/5. SVM/SVM/" class="archive-article-date">
-  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-<h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/5. SVM/SVM/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Machine Learning Note/6. KNN/KNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/Machine Learning Note/6. KNN/KNN/">KNN</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/Machine Learning Note/6. KNN/KNN/" class="archive-article-date">
-  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--*more*--> 
-<h1 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/6. KNN/KNN/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Machine Learning Note/3. Decision Tree/Decision Tree " class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1352,6 +1045,313 @@
 
 
   
+    <article id="post-Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝/">DT番外篇(二) - 连续型数值分箱与剪枝</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝/" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<h1 id="DT番外篇-二-连续型数值分箱与剪枝"><a href="#DT番外篇-二-连续型数值分箱与剪枝" class="headerlink" title="DT番外篇(二) - 连续型数值分箱与剪枝"></a>DT番外篇(二) - 连续型数值分箱与剪枝</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/3. Decision Tree/DT番外篇(二) - 连续型数值分箱与剪枝/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Machine Learning Note/6. KNN/KNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Machine Learning Note/6. KNN/KNN/">KNN</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine Learning Note/6. KNN/KNN/" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<h1 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/6. KNN/KNN/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Machine Learning Note/5. SVM/SVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Machine Learning Note/5. SVM/SVM/">SVM</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine Learning Note/5. SVM/SVM/" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/5. SVM/SVM/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学/">Machine Learning 番外篇（一）- Philosophy of Machine Learning</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学/" class="archive-article-date">
+  	<time datetime="2018-07-10T09:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--*more*--> 
+<h1 id="Machine-Learning-番外篇（一）-Philosophy-of-Machine-Learning"><a href="#Machine-Learning-番外篇（一）-Philosophy-of-Machine-Learning" class="headerlink" title="Machine Learning 番外篇（一）- Philosophy of Machine Learning"></a>Machine Learning 番外篇（一）- Philosophy of Machine Learning</h1><h3 id="Author-Benjamin142857"><a href="#Author-Benjamin142857" class="headerlink" title="Author : Benjamin142857"></a>Author : Benjamin142857</h3><p><img src="https://i.imgur.com/RJ39ueV.jpg" alt=""> </p>
+<blockquote>
+<p><strong>Content</strong></p>
+<ol>
+<li>Mystery of I/O</li>
+<li>Occam’s Razor</li>
+<li>Geometric of Dimensionality</li>
+<li>High-dimensional Manifold</li>
+</ol>
+</blockquote>
+<p>待补</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/Machine Learning Note/ML 番外篇/[-] ML番外篇(一) - 机器学习的哲学/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1470,11 +1470,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mathematic</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mathematic</a>
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
               </li>
              
               <li class="article-tag-list-item">
